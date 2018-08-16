@@ -4,6 +4,7 @@ let postSchema = new mongoose.Schema({
   userid : string,
   postid : String,
   cityid : String,
+  posttitle: String,
   posttext : String,
   postimage : { data: Buffer, contentType: String }
 

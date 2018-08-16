@@ -21,15 +21,10 @@ app.get('/', function homepage(request, response) {
 });
 
 
-app.post('/api/signup', controllers.signup.doSignUp);
-app.post('/api/signin', controllers.signin.doSignIn);
-app.post('/api/stocks', controllers.stocks.doAddStock);
-app.post('/api/site', controllers.site.doAddSite);
-app.post('/api/sunsign', controllers.sunsign.setUserSunsign);
-app.post('/api/todo', controllers.todo.doAddTodo);
-app.delete('/api/stocks', controllers.stocks.doDeleteStock);
-app.delete('/api/site', controllers.site.doDeleteSite);
-app.delete('/api/todo', controllers.todo.doDeleteTodo);
+app.get('/', controllers.landingPage.getLandingPage);
+app.get('/home', controllers.homePage.getHomePage);
+app.get('/profile', controllers.profilePage.getProfilePage);
+app.get('/cities', controllers.getCities.getCitiesContainer);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 let citySchema = new mongoose.Schema({
   cityid : String,
+  citname : String,
   cityimage : { data: Buffer, contentType: String }
 
 });
