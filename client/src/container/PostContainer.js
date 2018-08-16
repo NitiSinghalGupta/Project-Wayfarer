@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
-import City from '../component/City';
+import Post from '../component/Post';
 
-export default class CityContainer extends Component {
+export default class PostContainer extends Component {
     render(){
         return(
             <div>
-                <City/>
+                <Post />
             </div>
         )
     }

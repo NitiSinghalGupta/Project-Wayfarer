@@ -3,7 +3,6 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Header from './container/Header';
 import MyRoutes from './config/Routes';
-import Profile from './container/Profile';
 import MainBody from './container/MainBody';
 import Footer from './component/Footer';
 
