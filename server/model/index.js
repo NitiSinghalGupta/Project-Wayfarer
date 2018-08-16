@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://nitisinghal:def123abc@ds137687.mlab.com:37687/niti-personal-space', { useNewUrlParser: true });
+mongoose.connect('mongodb://', { useNewUrlParser: true });
 
 var Users = require('./users');
 var Posts = require('./posts');
