@@ -4,7 +4,10 @@ export default class Landing extends Component {
     render(){
         return(
             <div>
-                
+                <Carousel />
+                <LandingPageText />
+                <LandingPageText />
+                <LandingPageText />
             </div>
         )
     }
