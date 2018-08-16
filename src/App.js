@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Header from './components/Header';
-import MyRoutes from './config/routes';
-import Home from './components/Home';
+import Header from './component/Header';
+import MyRoutes from './config/Routes';
+import Profile from './container/Profile';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
-
+      <Profile />
       </div>
     );
   }
 }
 
-export default App;
+
