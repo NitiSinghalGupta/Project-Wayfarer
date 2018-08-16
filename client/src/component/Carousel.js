@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Post from '../Component/Post'
+import Post from './Post'
 
-export default class CoverImage extends Component{
+export default class Carousel extends Component{
     render(){
         return(
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

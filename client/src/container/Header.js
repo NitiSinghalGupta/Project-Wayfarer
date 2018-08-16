@@ -21,3 +21,11 @@ export default class Header extends Component {
         )
     }
 }
+
+application
+header 
+main body
+
+mainbody
+landing
+home
