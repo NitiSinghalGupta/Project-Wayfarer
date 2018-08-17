@@ -5,7 +5,7 @@ export default class City extends Component {
         return(
             <div className="card">
             <div className="card-body">
-                CITY NAME
+                <h4>inside city container</h4>
             </div>
             </div>
         )

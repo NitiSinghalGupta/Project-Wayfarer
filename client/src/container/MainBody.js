@@ -6,6 +6,7 @@ export default class MainBody extends Component {
     render(){
         return(
             <div>
+                <p>this is my main page</p>
             <Landing />    
             <HomePage />    
             </div>
