@@ -9,9 +9,9 @@ export default class  SigninSignup extends Component{
                 searchResults:[],
             }
         
-            currentSearchTerm = '';
+
         
-            onSearch = () => {
+            onSignUp = () => {
                 let htmlSearchElement = document.getElementById('searchText');
                 let query = htmlSearchElement.value;
         
@@ -20,10 +20,10 @@ export default class  SigninSignup extends Component{
                     return;
                 }
         
-                console.log('Search fired', query);
-                let url = `http://api.giphy.com/v1/gifs/search?q=${query}&api_key=NG0PQRv8oUbhvYse8FcK8yCYASyeljDk`;
+
+                let url = `http://localhost:3000/signup`;
         
-                this.currentSearchTerm = query;
+        
         
                 fetch (url)
                     .then((res) => {
@@ -69,9 +69,9 @@ export default class  SigninSignup extends Component{
                             <div className="modal-body">
                                 <form role="form">
                                         <div className="form-group">
-                                            <input type="email" className="form-control" placeholder="Email"/>
-                                            <input type="password" className="form-control" placeholder="Password" />
-                                            <button className="btn btn-primary btn-block" onClick={this.onSearch}>Sign Up</button>
+                                            <input type="email" className="form-control" id="signupEmail" placeholder="Email"/>
+                                            <input type="password" className="form-control" id="signupPassword" placeholder="Password" />
+                                            <button className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</button>
                                         </div>
                                 </form>
                             </div>
