@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import SigninSignup from '../Modal/SigninSignup';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default class Header extends Component {
 
@@ -15,16 +14,14 @@ export default class Header extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav mr-auto">
-                    <Link className="nav-link" to="/Home">
-                        <li className="nav-item">
-                        {/* <a className="nav-link" data-toggle="modal" data-target="#signinModal" href="#">Sign In <span className="sr-only">(current)</span></a> */}
-                        
-                        <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('signinSignup') }>Sign In</a>
+                    {/* <Link className="nav-link" to="/Home"> */}
+                        <li className="nav-item"> 
+                            <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('signinSignup') }>Sign In</a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" onClick={ () => this.props.onModalChange('signinSignup') } href="#">Sign Up <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" onClick={ () => this.props.onModalChange('signinSignup') } href="#">Sign Up <span className="sr-only">(current)</span></a>
                         </li>  
-                    </Link>                  
+                    {/* </Link>                   */}
                 </ul>
                 </div>
             </nav>

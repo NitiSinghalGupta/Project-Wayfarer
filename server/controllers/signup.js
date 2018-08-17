@@ -1,4 +1,4 @@
-//add repeated code
+// code for empty check
 const repeatedcode = require('../repeatedcode');
 
 //add db
@@ -8,6 +8,8 @@ var HTTP_SERVER_ERROR = 500;
 
 //function when receive call from browser
 function doSignUp(request, response) {
+    console.log(request);
+    response.json({msg: 'Signup Endpoint'});
     let email = request.body.email;
     let password = request.body.password;
 
@@ -34,23 +36,21 @@ function doSignUp(request, response) {
     addNewUserToDatabase(json, request, response);
 }
 
-//moving addNewUserToDatabase function from server.js and commenting it out there
+//addNewUserToDatabase
 function addNewUserToDatabase(json, request, response) {
     console.log('add new user to db', json);
 
-    // let's see if the user exists in the database or not
+    // see if user exists
     database.Users.find({ email: json.email }, function (error, results) {
         if (error) {
-            // database error
+            // db error
             console.log(error);
             response.status(500).send("something went wrong");
             return;
         }
 
         if (results && results.length > 0) {
-            // user already exists in my personal workspace
-            // we cannot register the user again
-            // thus we will send the error back
+            // user already exists throw error
             console.log('user already exists', results);
             response.status(500).send('User already exists');
             return;
@@ -58,20 +58,21 @@ function addNewUserToDatabase(json, request, response) {
 
         console.log('no user - create in db');
 
-        // now that user does not exist here
-        // we can insert the record in the database
+        // create new user
         database.Users.create(json, function (error, newUser) {
             if (error) {
                 console.log('error creating new user');
 
-                // database error again
+                // db error
                 response.status(500).send('insert user into database failed');
                 return;
             }
 
             console.log('new user created as: ', newUser);
 
-                response.json(newUser);
+                response.json(newUser, {msg: 'Sign Up succesfull!!'});
+                // response.send('Sign Up succesfull!!');
+                console.log( 'New User created!', newUser);
             });
         });
 };

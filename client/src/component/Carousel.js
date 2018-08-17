@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Post from './Post'
+import React, { Component } from 'react';
+
 
 export default class Carousel extends Component{
     render(){

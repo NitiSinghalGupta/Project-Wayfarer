@@ -1,47 +1,55 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 
 
 export default class  SigninSignup extends Component{
+
+    state = {
+        signedUp: false
+    }
+
     onSignUp = () => {
+
         let htmlEmailElement = document.getElementById('signupEmail');
-        let email = htmlEmailElement.value;
+        let email = htmlEmailElement.value.trim();
+
+        
 
         let htmlPasswordElement = document.getElementById('signupPassword');
-        let password = htmlPasswordElement.value;
+        let password = htmlPasswordElement.value.trim();
 
-        if(this.email !== '') {
-            console.log('email is blank');
-            return;
-        }
+        console.log('email is :' , email);
+        console.log('pwd is :' , password);
 
-        if(this.password !== '') {
-            console.log('password is blank');
-            return;
-        }
+        // if(email !== '') {
+        //     console.log('email is blank');
+        //     return;
+        // }
+
+        // if(password !== '') {
+        //     console.log('password is blank');
+        //     return;
+        // }
 
 
-        let url = `http://localhost:3000/signup`;
+        let url = 'http://localhost:3000/signup';
 
-        fetch (url)
-            .then((res) => {
-                // converts raw HTTP text response to json object
-                console.log('res is: ', res);
-                return res.json();
-            }).then((data) => {
-                // the json object is available to me here as 'data'
-                this.setState( { userProfile : data } );
-                console.log('json data:', data);
-            }).catch((err) => {
-                // throw error
-                console.log('Error retured API:', err);
-            });
+        axios.post(url)
+            .then(res => console.log('Signup Response = ', res))
+        // fetch('http://localhost:3000/signup')
+        //     .then((response) => {
+        //         return response.json();
+        //     }).then((data) => {
+             
+        //         // this.setState( { signedUp: true  } );
+        //         console.log('json data:', data);
+
+        //     }).catch((err) => {
+               
+        //         console.log('Error retured API:', err);
+        //     });
     }
             render (){
-
-
-        
-        
 
         return(
                     <div className="modal" id='signinModal' tabIndex="-1" role="dialog">
