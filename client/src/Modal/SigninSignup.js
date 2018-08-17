@@ -12,11 +12,19 @@ export default class  SigninSignup extends Component{
 
         
             onSignUp = () => {
-                let htmlSearchElement = document.getElementById('searchText');
-                let query = htmlSearchElement.value;
+                let htmlEmailElement = document.getElementById('signupEmail');
+                let email = htmlEmailElement.value;
+
+                let htmlPasswordElement = document.getElementById('signupPassword');
+                let password = htmlPasswordElement.value;
         
-                if(this.currentSearchTerm === query) {
-                    console.log('search term is same as previous one');
+                if(this.email !== '') {
+                    console.log('email is blank');
+                    return;
+                }
+
+                if(this.password !== '') {
+                    console.log('password is blank');
                     return;
                 }
         
