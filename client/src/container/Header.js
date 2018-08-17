@@ -15,15 +15,16 @@ export default class Header extends Component {
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                    <a className="nav-link" data-toggle="modal" data-target="#signinModal" href="#">Sign In <span className="sr-only">(current)</span></a>
+                    {/* <a className="nav-link" data-toggle="modal" data-target="#signinModal" href="#">Sign In <span className="sr-only">(current)</span></a> */}
+
+                    <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('signinSignup') }>Sign In</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" data-toggle="modal" data-target="#signinModal" href="#">Sign Up <span className="sr-only">(current)</span></a>
+                    <a className="nav-link" onClick={ () => this.props.onModalChange('signinSignup') } href="#">Sign Up <span className="sr-only">(current)</span></a>
                     </li>                    
                 </ul>
                 </div>
             </nav>
-            <SigninSignup />
             </div>
     
         )

@@ -10,32 +10,36 @@ import CreatePost from './Modal/CreatePost';
 
 export default class App extends Component {
 
-  // state = {
-  //   modalName : 'signinSignup'
-  // }
+  state = {
+    modalName : ''
+  }
 
-  // getModalToDisplay = () => {
-  //   if(this.state.modalName === 'signinSignup') {
-  //     return <SigninSignup />
-  //   }
+  getModalToDisplay = () => {
+    if(this.state.modalName === 'signinSignup') {
+      return <SigninSignup onClose={ (e) => { this.setModalName('')}}/>
+    }
 
-  //   if(this.state.modalName === 'createPost') {
-  //     return <CreatePost />
-  //   }
+    if(this.state.modalName === 'createPost') {
+      return <CreatePost />
+    }
 
-  //   return null;
-  // }
+    return null;
+  }
+
+  setModalName = (name) => {
+    this.setState({ modalName: name});
+  } 
 
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header onModalChange={ (e) => this.setModalName(e) } />
         <MainBody />
         <Footer />
 
-        {/* <div className='modal-container'>
+        <div className='modal-container'>
           { this.getModalToDisplay() }
-        </div> */}
+        </div>
       </div>
     );
   }
