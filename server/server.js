@@ -22,6 +22,8 @@ app.get('/', function homepage(request, response) {
 
 
 app.get('/', controllers.landingPage.getLandingPage);
+app.post('/signup', controllers.signup.doSignUp);
+app.post('/signin', controllers.signin.doSignIn);
 app.get('/home', controllers.homePage.getHomePage);
 app.get('/profile', controllers.profilePage.getProfilePage);
 app.get('/cities', controllers.getCities.getCitiesContainer);
