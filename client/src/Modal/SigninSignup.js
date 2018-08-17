@@ -3,51 +3,43 @@ import React, { Component } from 'react';
 
 
 export default class  SigninSignup extends Component{
-        render (){
+    onSignUp = () => {
+        let htmlEmailElement = document.getElementById('signupEmail');
+        let email = htmlEmailElement.value;
 
-            state = {
-                searchResults:[],
-            }
-        
+        let htmlPasswordElement = document.getElementById('signupPassword');
+        let password = htmlPasswordElement.value;
 
-        
-            onSignUp = () => {
-                let htmlEmailElement = document.getElementById('signupEmail');
-                let email = htmlEmailElement.value;
+        if(this.email !== '') {
+            console.log('email is blank');
+            return;
+        }
 
-                let htmlPasswordElement = document.getElementById('signupPassword');
-                let password = htmlPasswordElement.value;
-        
-                if(this.email !== '') {
-                    console.log('email is blank');
-                    return;
-                }
+        if(this.password !== '') {
+            console.log('password is blank');
+            return;
+        }
 
-                if(this.password !== '') {
-                    console.log('password is blank');
-                    return;
-                }
-        
 
-                let url = `http://localhost:3000/signup`;
-        
-        
-        
-                fetch (url)
-                    .then((res) => {
-                        // converts raw HTTP text response to json object
-                        console.log('res is: ', res);
-                        return res.json();
-                    }).then((data) => {
-                        // the json object is available to me here as 'data'
-                        // read the results from 'data' and populate the card holder object
-                        this.setState( { searchResults : data.data } );
-                        console.log('json data:', data);
-                    }).catch((err) => {
-                        // something failed
-                        console.log('Error retured API:', err);
-                    });
-            }
+        let url = `http://localhost:3000/signup`;
+
+        fetch (url)
+            .then((res) => {
+                // converts raw HTTP text response to json object
+                console.log('res is: ', res);
+                return res.json();
+            }).then((data) => {
+                // the json object is available to me here as 'data'
+                this.setState( { userProfile : data } );
+                console.log('json data:', data);
+            }).catch((err) => {
+                // throw error
+                console.log('Error retured API:', err);
+            });
+    }
+            render (){
+
+
         
         
 

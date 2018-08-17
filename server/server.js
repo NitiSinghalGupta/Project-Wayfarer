@@ -18,6 +18,7 @@ const controllers = require('./controllers');
 
 app.get('/', function homepage(request, response) {
   response.sendFile('views/index.html', { root: __dirname });
+  response.json({ message: 'You did it Niti! you have your server up and running, Good job!' })
 });
 
 
