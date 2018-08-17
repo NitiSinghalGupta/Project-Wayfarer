@@ -8,3 +8,17 @@ body {
 .modal {
   color: rgb(51,51,51);
 }
+
+.App {
+  position: relative;
+}
+/* 
+.modal-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  display: block !important;
+} */
