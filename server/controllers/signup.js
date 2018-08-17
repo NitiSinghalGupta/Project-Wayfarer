@@ -27,8 +27,6 @@ function doSignUp(request, response) {
     console.log('email and password are ok');
 
     let json = {
-        firstName: firstName,
-        lastName: lastName,
         email: email,
         password: password
     };
@@ -73,26 +71,9 @@ function addNewUserToDatabase(json, request, response) {
 
             console.log('new user created as: ', newUser);
 
-            let newSettingsJson = {
-                email: json.email,
-                stocks: [],
-                todos: [],
-                sites: [],
-                sunsign: ''
-            };
-
-            database.Settings.create(newSettingsJson, function (error2, newSettings) {
-                if (error2) {
-                    console.log('error creating settings record');
-
-                    response.status(500).send('insert user settings into database failed');
-                    return;
-                }
-
-                response.json(newSettings);
+                response.json(newUser);
             });
         });
-    });
 };
 
 //exporting so that available to all other classes
