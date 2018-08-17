@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //adding models
-const database = require('../models');
+const database = require('../model');
 
 const repeatedcode = require('../repeatedcode');
 

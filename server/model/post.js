@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let postSchema = new mongoose.Schema({
-  userid : string,
+  userid : String,
   postid : String,
   cityid : String,
   posttitle: String,

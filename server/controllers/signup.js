@@ -2,14 +2,12 @@
 const repeatedcode = require('../repeatedcode');
 
 //add db
-const database = require('../models');
+const database = require('../model');
 
 var HTTP_SERVER_ERROR = 500;
 
 //function when receive call from browser
 function doSignUp(request, response) {
-    let firstName = request.body.firstName;
-    let lastName = request.body.lastName;
     let email = request.body.email;
     let password = request.body.password;
 

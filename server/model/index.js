@@ -1,10 +1,10 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://', { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/wayfarer", { useNewUrlParser: true });
 
-var Users = require('./users');
-var Posts = require('./posts');
+var Users = require('./user');
+var Posts = require('./post');
 var Cities = require('./cities');
 
 module.exports = {
