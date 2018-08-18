@@ -44,7 +44,7 @@ export default class  SignUp extends Component{
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">Sign Up</h5>
-                            <button type="button" class="close" onClick={()=>{this.props.onClose()}} aria-label="Close">
+                            <button type="button" className="close" onClick={()=>{this.props.onClose()}} aria-label="Close">
                                  <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -52,13 +52,13 @@ export default class  SignUp extends Component{
                             <form role="form">
                                 <div className="form-group">
                                     <input type="email" className="form-control" id="signupEmail" placeholder="Email"/>
-                                        <p class="form-text text-muted error-message">Email required</p>
-                                        <p class="form-text text-muted error-message">Invalid Email</p>
+                                        <p className="form-text text-muted error-message">Email required</p>
+                                        <p className="form-text text-muted error-message">Invalid Email</p>
                                     <input type="password" className="form-control" id="signupPassword" placeholder="Password" />
-                                        <p class="form-text text-muted error-message">Password required</p>
+                                        <p className="form-text text-muted error-message">Password required</p>
                                     <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
-                                        <p class="form-text text-muted error-message">Re-enter your password to confirm</p>
-                                        <p class="form-text text-muted error-message">Passwords do not match</p>
+                                        <p className="form-text text-muted error-message">Re-enter your password to confirm</p>
+                                        <p className="form-text text-muted error-message">Passwords do not match</p>
                                     <button className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</button>
                                 </div>
                             </form>

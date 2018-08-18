@@ -44,7 +44,7 @@ export default class  SignIn extends Component{
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">Sign In</h5>
-                            <button type="button" class="close" onClick={()=>{this.props.onClose()}} aria-label="Close">
+                            <button type="button" className="close" onClick={()=>{this.props.onClose()}} aria-label="Close">
                                  <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -52,11 +52,11 @@ export default class  SignIn extends Component{
                             <form role="form">
                                 <div className="form-group">
                                     <input type="email" className="form-control" id="signinEmail" placeholder="Email"/>
-                                        <p class="form-text text-muted error-message">Email required</p>
-                                        <p class="form-text text-muted error-message">Invalid Email</p>                                    
+                                        <p className="form-text text-muted error-message">Email required</p>
+                                        <p className="form-text text-muted error-message">Invalid Email</p>                                    
                                     <input type="password" className="form-control" id="signinPassword" placeholder="Password" />
-                                        <p class="form-text text-muted error-message">Password required</p>
-                                        <p class="form-text text-muted error-message">Password Incorrect</p>
+                                        <p className="form-text text-muted error-message">Password required</p>
+                                        <p className="form-text text-muted error-message">Password Incorrect</p>
                                         <button className="btn btn-primary btn-block">Sign In</button>                                   
                                 </div>
                             </form>
