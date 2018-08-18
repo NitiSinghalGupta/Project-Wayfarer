@@ -3,7 +3,8 @@ import './App.css';
 import Header from './container/Header';
 import MainBody from './container/MainBody';
 import Footer from './component/Footer';
-import SigninSignup from './Modal/SigninSignup';
+import SignUp from './Modal/SignUp';
+import SignIn from './Modal/SignIn';
 import CreatePost from './Modal/CreatePost';
 
 export default class App extends Component {
@@ -13,8 +14,12 @@ export default class App extends Component {
   }
 
   getModalToDisplay = () => {
-    if(this.state.modalName === 'signinSignup') {
-      return <SigninSignup onClose={ (e) => { this.setModalName('')}}/>
+    if(this.state.modalName === 'SignUp') {
+      return <SignUp onClose={ (e) => { this.setModalName('')}}/>
+    }
+
+    if(this.state.modalName === 'SignIn') {
+      return <SignIn onClose={ (e) => { this.setModalName('')}}/>
     }
 
     if(this.state.modalName === 'createPost') {
