@@ -126,3 +126,12 @@ h3 {
   display: flex;
   justify-content: space-around;
 }
+
+.citycol{
+  display: flex;
+}
+
+.container.homepageContainer{
+  display: flex;
+  flex-direction: row;
+}
