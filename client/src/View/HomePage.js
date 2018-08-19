@@ -17,7 +17,7 @@ export default class HomePage extends Component {
                        <CitiesContainer cities={ cities } />
                     </div>
                     <div className='col-md-9'>
-                        <CityDetails city={ cities[0] } /> 
+                        <CityDetails city={ cities[0] } onModalChange={ (name) => this.props.onModalChange(name) } /> 
                     </div>
                 </div>
             </div>;

@@ -22,7 +22,9 @@ export default class CityDetails extends Component {
                     <h1>Posts</h1>
                 </div>
                 <div className='col'>
-                    <i className="fas fa-plus-circle" onClick={ () => this.props.onModalChange('CreatePost')}></i>
+                    <a href='#' onClick={ () => this.props.onModalChange('createPost')}>
+                        <i className="fas fa-plus-circle" ></i>
+                    </a>
                 </div>
             </div>
             <div className='row'>
