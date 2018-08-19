@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import IfClause from './../component/IfClause';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
-export default class  SignUp extends Component{
+class  SignUp extends Component{
 
     state = {
         signedUp: false,
@@ -74,6 +75,8 @@ export default class  SignUp extends Component{
         }).then((data) => {            
             this.setState( { signedUp: true  } );
             console.log('json data:', data);
+            this.props.history.push('/home');
+            this.props.onClose();
         }).catch((err) => {              
             console.log('Error retured API in signUp:', err);
         });
@@ -123,3 +126,8 @@ export default class  SignUp extends Component{
     }
 
 }
+
+
+const SignUpWithRouter = withRouter(SignUp);
+
+export default SignUpWithRouter;

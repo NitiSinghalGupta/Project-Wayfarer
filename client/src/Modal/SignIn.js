@@ -72,6 +72,8 @@ class SignIn extends Component{
 
             // let's go to the home screen
             this.props.history.push('/home');
+            this.props.onClose();
+            
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);
         });
