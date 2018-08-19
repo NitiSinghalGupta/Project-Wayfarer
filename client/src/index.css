@@ -121,3 +121,8 @@ h3 {
 .slick-arrow:hover {
   background-color: rgb(59, 16, 16);
 }
+
+.landingpagetext {
+  display: flex;
+  justify-content: space-around;
+}
