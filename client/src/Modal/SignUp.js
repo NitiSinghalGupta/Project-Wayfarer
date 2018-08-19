@@ -112,7 +112,7 @@ export default class  SignUp extends Component{
                                     <IfClause condition={ this.state.pwdNotSame }>
                                         <p className="form-text text-muted error-message">Passwords do not match</p>
                                     </IfClause>    
-                                    <button className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</button>
+                                    <a className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</a>
                                 </div>
                             </form>
                         </div>

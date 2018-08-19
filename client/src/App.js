@@ -7,6 +7,9 @@ import SignUp from './Modal/SignUp';
 import SignIn from './Modal/SignIn';
 import CreatePost from './Modal/CreatePost';
 import Group from './component/Group';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Landing from './View/Landing';
+import HomePage from './View/HomePage';
 
 export default class App extends Component {
 
@@ -36,15 +39,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <Group>
-        <Header onModalChange={ (e) => this.setModalName(e) } />
-        <MainBody />
-        <Footer />
+      <BrowserRouter>
+        <Group>
+          <Header onModalChange={ (e) => this.setModalName(e) } />
+          {/* <MainBody /> */}
+          <main>
+                <Switch>
+                  <Route exact path="/" component={ Landing } />
+                  <Route exact path="/home" component={ HomePage } />
+                </Switch>
+            </main>
 
-        <div className='modal-container'>
-          { this.getModalToDisplay() }
-        </div>
-      </Group>
+          <Footer />
+
+          <div className='modal-container'>
+            { this.getModalToDisplay() }
+          </div>
+        </Group>
+      </BrowserRouter>
     );
   }
 }

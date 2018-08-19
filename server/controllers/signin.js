@@ -46,23 +46,7 @@ function doSignIn(request, response) {
         // return value to front end
         let user = results[0];
 
-        database.Settings.findOne({ email: email }, function (error2, settings) {
-            if (error2) {
-                console.log('cannot find settings');
-                response.status(500).send("cannot read settings");
-                return;
-            }
-
-            if (!settings) {
-                settings = {
-                    email: email
-                };
-            }
-
-            response.json(settings);
-        });
-
-
+        response.json(user);
     });
 }
 

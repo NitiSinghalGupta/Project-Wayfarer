@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import IfClause from './../component/IfClause';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
-export default class  SignIn extends Component{
+class SignIn extends Component{
 
     state = {
         signedIn: false,
@@ -58,11 +59,6 @@ export default class  SignIn extends Component{
             return;
         }
 
-        if(password.length < 5 ) {
-            this.setState({ pwdInvalid : true });
-            return;
-        }        
-
         console.log('email is :' , email);
         console.log('pwd is :' , password);
 
@@ -72,6 +68,10 @@ export default class  SignIn extends Component{
         }).then((data) => {            
             this.setState( { signedIn: true  } );
             console.log('json data:', data);
+            console.log(this);
+
+            // let's go to the home screen
+            this.props.history.push('/home');
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);
         });
@@ -109,7 +109,7 @@ export default class  SignIn extends Component{
                                     <IfClause condition={ this.state.pwdInvalid }>
                                     <p className="form-text text-muted error-message">Password Incorrect</p>
                                     </IfClause>
-                                    <button className="btn btn-primary btn-block" onClick={ () => this.onSignIn() }>Sign In</button>
+                                    <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSignIn() }>Sign In</a>
                                 </div>
                             </form>
                         </div>
@@ -120,3 +120,7 @@ export default class  SignIn extends Component{
     }
 
 }
+
+const SignInWithRouter = withRouter(SignIn);
+
+export default SignInWithRouter;
