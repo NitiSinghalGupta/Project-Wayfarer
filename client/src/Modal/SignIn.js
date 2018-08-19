@@ -87,23 +87,30 @@ class SignIn extends Component{
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
+                        {/* <div class="avatar">
+                            <img src="/examples/images/avatar.png" alt="Avatar" />
+                        </div> */}
                             <h5 className="modal-title">Sign In</h5>
-                            <button type="button" className="close" onClick={()=>{this.props.onClose()}} aria-label="Close">
+                            <button type="button" className="close" data-dismiss="modal" onClick={()=>{this.props.onClose()}} aria-label="Close">
                                  <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div className="modal-body">
                             <form role="form">
                                 <div className="form-group">
-                                    <input type="text" className="form-control" id="signinEmail" placeholder="Email"/>
-                                    
+                                    <div className="form-group">
+                                       <i class="fa fa-user"></i>
+                                       <input type="text" className="form-control" id="signinEmail" placeholder="Email"/>
+                                      
                                     <IfClause condition={ this.state.emailRequired }>
                                         <p className="form-text text-muted error-message">Email required</p>
                                     </IfClause>
                                     <IfClause condition={ this.state.emailInvalid }>
                                         <p className="form-text text-muted error-message">Invalid Email</p>                                    
                                     </IfClause>
-
+                                    </div>
+                                    <div className="form-group">
+                                    <i class="fa fa-lock"></i>
                                     <input type="password" className="form-control" id="signinPassword" placeholder="Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                     <p className="form-text text-muted error-message">Password required</p>
@@ -112,6 +119,7 @@ class SignIn extends Component{
                                     <p className="form-text text-muted error-message">Password Incorrect</p>
                                     </IfClause>
                                     <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSignIn() }>Sign In</a>
+                                    </div>
                                 </div>
                             </form>
                         </div>

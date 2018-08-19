@@ -7,10 +7,7 @@ export default class MainBody extends Component {
     render(){
         return(
             <main>
-                {/* <Switch>
-                    <Route path="/" component={ Landing } />
-                    <Route path="/home" component={ HomePage } />
-                </Switch> */}
+
             </main>
         )
     }
