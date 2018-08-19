@@ -131,6 +131,7 @@ h3 {
   border: 1px solid lightblue
 }
 
-.fas .fa-plus-circle{
-  font-size: 32px;
+i.fas.fa-plus-circle{
+  font-size: 48px;
+  color:lightblue;
 }
