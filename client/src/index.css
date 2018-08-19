@@ -155,3 +155,14 @@ i.fas.fa-plus-circle{
   color:lightblue;
   float: right;
 }
+
+.titleP { 
+  font-size:16px; font-weight:500;
+}
+
+.bot-border {
+   border-bottom:3px #f8f8f8 solid;  margin:5px 0  5px 0
+}	
+.picture {
+  border-radius: 8px;
+}

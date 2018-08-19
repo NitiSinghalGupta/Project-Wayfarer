@@ -18,25 +18,32 @@ export default class Profile extends Component {
                 </div>
                 <div class="row">
                     <div class="col-xs-4 col-xs-offset-4 text-left">
-                        <div class=" col-xs-6 tital">First Name:</div>
-                        <div class=" col-xs-6 ">Marko</div>
+                        <div class=" col-xs-6 titleP">First Name:</div>
+                        <div class=" col-xs-6 "><input type="text" className="form-control" id="" placeholder="Enter first name"/></div>
                         <div class="clearfix"></div>
                         <div class="bot-border"></div>
 
-                        <div class="col-xs-6 tital ">Last Name:</div>
-                        <div class="col-xs-6"> Markovic</div>
+                        <div class="col-xs-6 titleP ">Last Name:</div>
+                        <div class="col-xs-6"> <input type="text" className="form-control" id="" placeholder="Enter last name"/></div>
                         <div class="clearfix"></div>
                         <div class="bot-border"></div>
 
-                        <div class="col-xs-6 tital ">Age:</div>
-                        <div class="col-xs-6"> 25</div>
+                        <div class="col-xs-6 titleP ">Date of Joining:</div>
+                        <div class="col-xs-6"> <input type="text" className="form-control" id="" placeholder="Enter DoJ"/></div>
                         <div class="clearfix"></div>
                         <div class="bot-border"></div>
 
-                        <div class="col-xs-6 tital ">Place Of Birth:</div>
-                        <div class="col-xs-6">Doboj</div>
-                        <div class="clearfix"></div>
+                        <div class="col-xs-6 titleP ">Location:</div>
+                        <div class="col-xs-6"><input type="text" className="form-control" id="" placeholder="Enter your location "/></div>
+                        <div class="clearfix"></div>                      
                         <div class="bot-border"></div>
+
+                        <div class="col-xs-6 titleP "></div>
+                        <div class="col-xs-6"></div>
+                        <div class="clearfix"></div>
+                        <a href='#' className="btn btn-primary btn-block" >Save</a>
+                        <div class="bot-border"></div>
+
                     </div>
                 </div>    
             </div>

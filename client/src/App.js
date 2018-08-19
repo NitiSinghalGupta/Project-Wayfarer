@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './container/Header';
-import MainBody from './container/MainBody';
 import Footer from './component/Footer';
 import SignUp from './Modal/SignUp';
 import SignIn from './Modal/SignIn';
