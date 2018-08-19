@@ -10,6 +10,7 @@ export default class  SignUp extends Component{
         emailRequired: false,
         pwdRequired : false,
         pwdInvalid : false,
+        pwdNotSame : false,
     };
 
     checkEmailAddress(email) {
@@ -32,6 +33,7 @@ export default class  SignUp extends Component{
             emailInvalid : false,
             pwdRequired : false,
             pwdInvalid : false,
+            pwdNotSame : false,
         })
 
         let htmlEmailElement = document.getElementById('signupEmail');
@@ -56,17 +58,19 @@ export default class  SignUp extends Component{
             return;
         }
 
-        if(password.length < 5 ) {
-            this.setState({ pwdInvalid : true });
-            return;
-        }  
+        // if(password.length < 5 ) {
+        //     this.setState({ pwdInvalid : true });
+        //     return;
+        // }  
 
         
         let htmlCpasswordElement = document.getElementById('confirmPassword');
         let cpwd = htmlCpasswordElement.value.trim();
 
-        if(password.length !== cpwd.length && password === cpwd) {
-            this.setState({ pwdRequired : true });
+        console.log('pwd: ', password, cpwd);
+
+        if(password !== cpwd) {
+            this.setState({ pwdNotSame : true });
             return;
         }
 
@@ -116,7 +120,7 @@ export default class  SignUp extends Component{
                                     <IfClause condition={ this.state.pwdRequired }>
                                         <p className="form-text text-muted error-message">Re-enter your password to confirm</p>
                                     </IfClause>    
-                                    <IfClause condition={ this.state.pwdInvalid }>
+                                    <IfClause condition={ this.state.pwdNotSame }>
                                         <p className="form-text text-muted error-message">Passwords do not match</p>
                                     </IfClause>    
                                     <button className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</button>
