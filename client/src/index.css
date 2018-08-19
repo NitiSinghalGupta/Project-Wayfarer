@@ -166,3 +166,7 @@ i.fas.fa-plus-circle{
 .picture {
   border-radius: 8px;
 }
+
+.img-thumbnail {
+  width: 200px;
+}
