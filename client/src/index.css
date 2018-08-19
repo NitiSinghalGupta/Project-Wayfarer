@@ -4,6 +4,9 @@ body {
   font-family: sans-serif;
 }
 
+main {
+  padding-top: 60px;
+}
 
 .modal {
   color: rgb(51,51,51);

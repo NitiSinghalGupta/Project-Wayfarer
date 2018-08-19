@@ -6,6 +6,7 @@ import Footer from './component/Footer';
 import SignUp from './Modal/SignUp';
 import SignIn from './Modal/SignIn';
 import CreatePost from './Modal/CreatePost';
+import Group from './component/Group';
 
 export default class App extends Component {
 
@@ -35,7 +36,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Group>
         <Header onModalChange={ (e) => this.setModalName(e) } />
         <MainBody />
         <Footer />
@@ -43,7 +44,7 @@ export default class App extends Component {
         <div className='modal-container'>
           { this.getModalToDisplay() }
         </div>
-      </div>
+      </Group>
     );
   }
 }
