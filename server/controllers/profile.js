@@ -6,12 +6,10 @@ const database = require('../model');
 
 const repeatedcode = require('../repeatedcode');
 
-//bad http request code
 var badHttpRequestCode = 400;
 
 function getProfile(request, response) {
 
-    // pass username pwd
     let firstname = request.body.firstname;
     let lastname = request.body.lastname;
     let location = request.body.location;
@@ -32,8 +30,6 @@ function getProfile(request, response) {
         results.location = location;
         results.userImg = image;
 
-
-        // save in the database
         results.save(function (error2, saved) {
             if (error2) {
                 response.status(500).send("something failed");

@@ -2,6 +2,71 @@ import React,{Component} from 'react';
 
 
 export default class Profile extends Component {
+
+    state = {
+
+    }
+
+    onSignIn = () => 
+    {
+
+        let url = 'http://localhost:3000/signin';
+
+        let htmlEmailElement = document.getElementById('signinEmail');
+        let email = htmlEmailElement.value.trim();
+
+        // let's hide all error message from previous time
+        this.setState( {
+            emailRequired : false,
+            emailInvalid : false,
+            pwdRequired : false,
+            pwdInvalid : false,
+        })
+
+        // check for errors again
+        if(email.length === 0) {
+            this.setState({ emailRequired : true });
+            return;
+        }
+
+        if(!this.checkEmailAddress(email)) {
+            this.setState({ emailInvalid : true });
+            return;
+        }
+
+
+        let htmlPasswordElement = document.getElementById('signinPassword');
+        let password = htmlPasswordElement.value.trim();
+
+        if(password.length === 0) {
+            this.setState({ pwdRequired : true });
+            return;
+        }
+
+        console.log('email is :' , email);
+        console.log('pwd is :' , password);
+
+        axios.post('http://localhost:3000/signin', {
+            email: email,
+            password: password
+        }).then((data) => {            
+            // this.setState( { signedIn: true  } );
+            this.props.onProfileChange(data);
+            console.log('json data:', data);
+            console.log(this);
+
+            // let's go to the home screen
+            this.props.history.push('/home');
+            this.props.onClose();
+            
+        }).catch((err) => {              
+            console.log('Error retured API SignIn:', err);
+        });
+            
+
+        } 
+
+
     render(){
         return(
           
@@ -41,7 +106,7 @@ export default class Profile extends Component {
                         <div class="col-xs-6 titleP "></div>
                         <div class="col-xs-6"></div>
                         <div class="clearfix"></div>
-                        <a href='#' className="btn btn-primary btn-block" >Save</a>
+                        <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSaveClick()>Save</a>
                         <div class="bot-border"></div>
 
                     </div>
