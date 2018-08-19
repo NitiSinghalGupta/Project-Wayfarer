@@ -2,7 +2,7 @@ import React, { Component }from 'react';
 import {Switch, Route} from 'react-router-dom';
 import  HomePage from '../View/HomePage';
 import  Landing from '../View/Landing';
-
+import  Profile from '../View/Profile';
 
 export default class Routes extends Component{
 
