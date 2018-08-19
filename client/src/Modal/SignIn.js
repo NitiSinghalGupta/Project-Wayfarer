@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 class SignIn extends Component{
 
     state = {
-        signedIn: false,
         emailInvalid: false,
         emailRequired: false,
         pwdRequired : false,
@@ -66,7 +65,8 @@ class SignIn extends Component{
             email: email,
             password: password
         }).then((data) => {            
-            this.setState( { signedIn: true  } );
+            // this.setState( { signedIn: true  } );
+            this.props.onProfileChange(data);
             console.log('json data:', data);
             console.log(this);
 

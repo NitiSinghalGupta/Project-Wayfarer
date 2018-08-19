@@ -13,16 +13,17 @@ import MyRoutes from './config/Routes';
 export default class App extends Component {
 
   state = {
-    modalName : ''
+    modalName : '',
+    profile: null
   }
 
   getModalToDisplay = () => {
     if(this.state.modalName === 'SignUp') {
-      return <SignUp onClose={ (e) => { this.setModalName('')}}/>
+      return <SignUp onClose={ (e) => { this.setModalName('')}} onProfileChange={ (data) => this.setProfileData(data) } />
     }
 
     if(this.state.modalName === 'SignIn') {
-      return <SignIn onClose={ (e) => { this.setModalName('')}}/>
+      return <SignIn onClose={ (e) => { this.setModalName('')}} onProfileChange={ (data) => this.setProfileData(data) }  />
     }
 
     if(this.state.modalName === 'createPost') {
@@ -36,11 +37,15 @@ export default class App extends Component {
     this.setState({ modalName: name});
   } 
 
+  setProfileData = (data) => {
+    this.setState({ profile : data});
+  }
+
   render() {
     return (
       <BrowserRouter>
         <Group>
-          <Header onModalChange={ (e) => this.setModalName(e) } />
+          <Header onModalChange={ (e) => this.setModalName(e) } profile={ this.state.profile } onProfileChange={ (data) => this.setProfileData(data) }/>
           {/* <MainBody /> */}
           <main>
               <MyRoutes />
