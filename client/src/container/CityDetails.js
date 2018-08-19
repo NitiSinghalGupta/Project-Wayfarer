@@ -18,8 +18,12 @@ export default class CityDetails extends Component {
             </div>
 
             <div className="row">
-            <h1>Posts</h1>
-            <i className="fas fa-plus-circle"></i>
+                <div className='col'>
+                    <h1>Posts</h1>
+                </div>
+                <div className='col'>
+                    <i className="fas fa-plus-circle"></i>
+                </div>
             </div>
             <div className='row'>
                 <PostContainer />
