@@ -26,3 +26,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.city-detail-image {
+  width: 400px;
+  float: right;
+}
+.city-image {
+  width: 50px;
+}

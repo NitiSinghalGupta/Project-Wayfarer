@@ -1,17 +1,16 @@
 import React,{Component} from 'react';
 
 export default class City extends Component {
-    render(){
+    render() {
         return(
-            <div className="container">
-                <div className="row cityrow">
-                    <div class="col citycol">
-                        <img className="" src="" alt="Card image cap" />
-                         <p>First City Name with Image</p>
-                    </div>
+            <div className="row postcard">
+                <div class="col">
+                    <img className="img-thumbnail city-image" src="https://az760333.vo.msecnd.net/-/media/corporate/footer-section/shutterstock_210836533.jpg?la=en&ts=6e058b19-5741-4545-a575-5d4016a04962" /> 
+                </div>
+                <div class="col">
+                    <p>{ this.props.city.name }</p>
                 </div>
             </div>
-
         )
     }
 }

@@ -127,20 +127,6 @@ h3 {
   justify-content: space-around;
 }
 
-.citycol{
-  display: flex;
-}
-
-.container.homepageContainer{
-  display: flex;
-  flex-direction: row;
-}
-
-.postlayout {
-  display: flex;
-  flex-direction: row;
-}
-
-.cityname {
-  display: flex;
+.postcard {
+  border: 2px solid blacl;
 }
