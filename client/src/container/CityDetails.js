@@ -8,9 +8,9 @@ export default class CityDetails extends Component {
         return <Group>
             <div className='row'>
                 <div className='col-md-3'>
-                    { this.props.city.name }
+                    <h1>{ this.props.city.name }</h1>
                     <br />
-                    { this.props.city.country }
+                    <h6>{ this.props.city.country }</h6>
                 </div>
                 <div className='col-md-9'>
                     <img className="city-detail-image" src="https://az760333.vo.msecnd.net/-/media/corporate/footer-section/shutterstock_210836533.jpg?la=en&ts=6e058b19-5741-4545-a575-5d4016a04962" /> 

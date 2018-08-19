@@ -127,6 +127,7 @@ h3 {
   justify-content: space-around;
 }
 
-.postcard {
-  border: 2px solid blacl;
+.row {
+  border: 1px solid lightblue
 }
+
