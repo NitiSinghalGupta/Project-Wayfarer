@@ -32,6 +32,7 @@ app.get('/', function homepage(request, response) {
 
 app.post('/signup', controllers.signup.doSignUp);
 app.post('/signin', controllers.signin.doSignIn);
+app.post('/profile',controllers.profile.getProfile)
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
