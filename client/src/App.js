@@ -5,10 +5,10 @@ import MainBody from './container/MainBody';
 import Footer from './component/Footer';
 import SignUp from './Modal/SignUp';
 import SignIn from './Modal/SignIn';
-import CreatePost from './Modal/CreatePost';
 import Group from './component/Group';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MyRoutes from './config/Routes';
+import CreatePost from './Modal/CreatePost';
 
 export default class App extends Component {
 
@@ -48,7 +48,7 @@ export default class App extends Component {
           <Header onModalChange={ (e) => this.setModalName(e) } profile={ this.state.profile } onProfileChange={ (data) => this.setProfileData(data) }/>
           {/* <MainBody /> */}
           <main>
-              <MyRoutes />
+              <MyRoutes onModalChange={ (name) => this.setModalName(name) } />
             </main>
 
           <Footer />

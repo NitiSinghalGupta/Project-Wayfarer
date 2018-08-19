@@ -5,11 +5,16 @@ import  Landing from '../View/Landing';
 
 
 export default class Routes extends Component{
+
+    getHomePage() {
+        return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } />
+    }
+    
     render(){
         return(
             <Switch>
                 <Route exact path="/" component={ Landing } />
-                <Route exact path="/home" component={ HomePage } />
+                <Route exact path="/home" render={ this.getHomePage } />
             </Switch>
         )
     }
