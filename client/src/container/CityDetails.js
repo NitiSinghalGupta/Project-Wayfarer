@@ -6,9 +6,13 @@ export default class CityDetails extends Component {
         return(
             <div className="container">
             <div className="cityname">
+            <div className="citynamedetails">
                 <h1>London</h1>
                 <h2>United Kingdom</h2>
-                <img  src="" alt="Card image cap" />
+            </div>    
+                <div className="cityimage">
+                 <img  src="" alt="Card image cap" />
+                </div>
             </div>
                 <PostContainer />
             </div>

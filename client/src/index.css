@@ -135,3 +135,12 @@ h3 {
   display: flex;
   flex-direction: row;
 }
+
+.postlayout {
+  display: flex;
+  flex-direction: row;
+}
+
+.cityname {
+  display: flex;
+}
