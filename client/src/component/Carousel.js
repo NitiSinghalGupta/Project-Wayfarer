@@ -5,7 +5,10 @@ import Slider from "react-slick";
 export default class Carousel extends Component{
     render() {
         var settings = {
-          dots: true
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 2000,
+           
         };
         return (
           <div className="container">
