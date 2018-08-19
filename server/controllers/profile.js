@@ -16,24 +16,32 @@ function getProfile(request, response) {
     let lastname = request.body.lastname;
     let location = request.body.location;
     let password = request.body.password;
-
-    console.log(`sign in user for ${email} and password ${password}`);
+    let email = request.body.email;
+    let image = request.body.image;
 
     // find user in database
-    database.Users.findOne({ email: email, password: password }, function (error, results) {
+    database.Users.findOne({ email: email}, function (error, results) {
         if (error) {
             console.log('error finding user');
             response.status(badHttpRequestCode).send("something went wrong");
             return;
         }
 
-        if (!results || results.length == 0) {
-            console.log('no user in database');
-            response.status(badHttpRequestCode).send("user not found");
-            return;
-        }
+        results.firstname = firstname; 
+        results.lastname = lastname;
+        results.location = location;
+        results.userImg = image;
 
-         
+
+        // save in the database
+        results.save(function (error2, saved) {
+            if (error2) {
+                response.status(500).send("something failed");
+                return;
+            }
+
+            response.json(saved);
+        });
     });
 }
 
