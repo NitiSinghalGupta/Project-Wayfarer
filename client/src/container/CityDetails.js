@@ -17,6 +17,10 @@ export default class CityDetails extends Component {
                 </div>
             </div>
 
+            <div className="row">
+            <h1>Posts</h1>
+            
+            </div>
             <div className='row'>
                 <PostContainer />
             </div>
