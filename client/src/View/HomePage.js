@@ -7,8 +7,8 @@ export default class HomePage extends Component {
         return(
             <div>
                 <h2>This will be my homepage</h2>
-               {/* <CitiesContainer />
-               <CityDetails />  */}
+               <CitiesContainer />
+               <CityDetails /> 
             </div>
         )
     }

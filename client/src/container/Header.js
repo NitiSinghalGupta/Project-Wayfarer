@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class Header extends Component {
+class Header extends Component {
+
+    onSignOut = () => {
+        console.log("signout handler called")
+        this.props.history.push('/');
+    }
 
     render(){
 
@@ -14,14 +19,15 @@ export default class Header extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav mr-auto">
-                    {/* <Link className="nav-link" to="/Home"> */}
                         <li className="nav-item"> 
-                            <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignIn') }>Sign In</a>
+                            <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignIn') }>SignIn</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignUp') } >Sign Up <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignUp') } >SignUp <span className="sr-only">(current)</span></a>
                         </li>  
-                    {/* </Link>                   */}
+                        <li className="nav-item">
+                            <a className="nav-link" href="#" onClick={ () => this.onSignOut() } >SignOut <span className="sr-only">(current)</span></a>
+                        </li>                     
                 </ul>
                 </div>
             </nav>
@@ -31,3 +37,6 @@ export default class Header extends Component {
     }
 }
 
+const SignOutWithRouter = withRouter(Header);
+
+export default SignOutWithRouter;

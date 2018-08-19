@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component }from 'react';
 import {Switch, Route} from 'react-router-dom';
 import  HomePage from '../View/HomePage';
+import  Landing from '../View/Landing';
 
 
-export default (
-    <Switch>
-        <Route path='/Home' component={HomePage}/>
-        {/* <Route exact path='/Home' component={HomePage}/> */}
-        {/* <Route path='/todos' component={  }/> */}
-    </Switch>  
+export default class Routes extends Component{
+    render(){
+        return(
+            <Switch>
+                <Route exact path="/" component={ Landing } />
+                <Route exact path="/home" component={ HomePage } />
+            </Switch>
+        )
+    }
 
-)
+
+}

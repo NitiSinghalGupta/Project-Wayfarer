@@ -7,9 +7,8 @@ import SignUp from './Modal/SignUp';
 import SignIn from './Modal/SignIn';
 import CreatePost from './Modal/CreatePost';
 import Group from './component/Group';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Landing from './View/Landing';
-import HomePage from './View/HomePage';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import MyRoutes from './config/Routes';
 
 export default class App extends Component {
 
@@ -44,10 +43,7 @@ export default class App extends Component {
           <Header onModalChange={ (e) => this.setModalName(e) } />
           {/* <MainBody /> */}
           <main>
-                <Switch>
-                  <Route exact path="/" component={ Landing } />
-                  <Route exact path="/home" component={ HomePage } />
-                </Switch>
+              <MyRoutes />
             </main>
 
           <Footer />

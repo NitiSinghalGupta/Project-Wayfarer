@@ -8,8 +8,6 @@ export default class Landing extends Component {
             <div>
                 <Carousel />
                 <LandingPageText />
-                {/* <LandingPageText />
-                <LandingPageText />  */}
             </div>
         )
     }
