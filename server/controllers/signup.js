@@ -8,8 +8,11 @@ var HTTP_SERVER_ERROR = 500;
 
 //function when receive call from browser
 function doSignUp(request, response) {
-    console.log(request);
-    response.json({msg: 'Signup Endpoint'});
+    // console.log(request);
+    // response.json({msg: 'Signup Endpoint'});
+    console.log(request.body);
+
+    
     let email = request.body.email;
     let password = request.body.password;
 
@@ -69,12 +72,9 @@ function addNewUserToDatabase(json, request, response) {
             }
 
             console.log('new user created as: ', newUser);
-
-                response.json(newUser, {msg: 'Sign Up succesfull!!'});
-                // response.send('Sign Up succesfull!!');
-                console.log( 'New User created!', newUser);
-            });
+            response.json(newUser);
         });
+    });
 };
 
 //exporting so that available to all other classes

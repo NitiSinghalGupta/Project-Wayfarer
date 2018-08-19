@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IfClause from './../component/IfClause';
-
+import axios from 'axios';
 
 export default class  SignIn extends Component{
 
@@ -66,18 +66,17 @@ export default class  SignIn extends Component{
         console.log('email is :' , email);
         console.log('pwd is :' , password);
 
-        fetch(url,{
-            method: 'post',
-            mode: "cors",
-            // body: JSON.stringify(data)
-        }).then((response) => {
-                return response.json();
-            }).then((data) => {            
-                this.setState( { signedIn: true  } );
-                console.log('json data:', data);
-            }).catch((err) => {              
-                console.log('Error retured API:', err);
-            });
+        axios.post('http://localhost:3000/signin', {
+            email: email,
+            password: password
+        }).then((data) => {            
+            this.setState( { signedIn: true  } );
+            console.log('json data:', data);
+        }).catch((err) => {              
+            console.log('Error retured API SignIn:', err);
+        });
+            
+
         }    
     
     render (){

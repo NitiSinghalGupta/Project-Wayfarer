@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IfClause from './../component/IfClause';
-
+import axios from 'axios';
 
 export default class  SignUp extends Component{
 
@@ -24,9 +24,6 @@ export default class  SignUp extends Component{
 
     onSignUp = () => 
     {
-
-        let url = 'http://localhost:3000/signup';
-
         // let's hide all error message from previous time
         this.setState( {
             emailRequired : false,
@@ -58,12 +55,6 @@ export default class  SignUp extends Component{
             return;
         }
 
-        // if(password.length < 5 ) {
-        //     this.setState({ pwdInvalid : true });
-        //     return;
-        // }  
-
-        
         let htmlCpasswordElement = document.getElementById('confirmPassword');
         let cpwd = htmlCpasswordElement.value.trim();
 
@@ -77,19 +68,17 @@ export default class  SignUp extends Component{
         console.log('email is :' , email);
         console.log('pwd is :' , password);
 
-        fetch(url,{
-            method: 'post',
-            mode: "cors",
-            // body: JSON.stringify(data)
-        }).then((response) => {
-                return response.json();
-            }).then((data) => {            
-                this.setState( { signedUp: true  } );
-                console.log('json data:', data);
-            }).catch((err) => {              
-                console.log('Error retured API:', err);
-            });
-        }    
+        axios.post('http://localhost:3000/signup', {
+            email: email,
+            password: password
+        }).then((data) => {            
+            this.setState( { signedUp: true  } );
+            console.log('json data:', data);
+        }).catch((err) => {              
+            console.log('Error retured API in signUp:', err);
+        });
+
+    }    
     
     render (){
         return(
