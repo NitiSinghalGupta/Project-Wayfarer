@@ -27,7 +27,7 @@ export default class App extends Component {
     }
 
     if(this.state.modalName === 'createPost') {
-      return <CreatePost />
+      return <CreatePost onClose={ (e) => { this.setModalName('')}} />
     }
 
     return null;

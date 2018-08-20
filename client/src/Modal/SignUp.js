@@ -85,7 +85,7 @@ class  SignUp extends Component{
     
     render (){
         return(
-                <div className="modal" id='signinModal' tabIndex="-1" role="dialog">
+                <div className="modal" id='signUpModal' tabIndex="-1" role="dialog">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
