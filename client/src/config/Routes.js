@@ -13,7 +13,9 @@ export default class Routes extends Component{
                 <Route exact path="/home" render={ () => {
                     return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } />
                  } } />
-                 <Route exact path="/Profile" component={ Profile } />
+                 <Route exact path="/profile" render={() => {
+                     return <Profile user={this.props.user} />
+                 }} />
             </Switch>
         )
     }

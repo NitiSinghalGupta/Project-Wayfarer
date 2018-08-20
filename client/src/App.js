@@ -47,7 +47,7 @@ export default class App extends Component {
           <Header onModalChange={ (e) => this.setModalName(e) } profile={ this.state.profile } onProfileChange={ (data) => this.setProfileData(data) }/>
           {/* <MainBody /> */}
           <main>
-              <MyRoutes onModalChange={ (name) => this.setModalName(name) } />
+              <MyRoutes onModalChange={ (name) => this.setModalName(name) } user={this.state.profile}/>
             </main>
 
           <Footer />

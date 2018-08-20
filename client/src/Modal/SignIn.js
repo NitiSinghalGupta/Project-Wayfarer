@@ -70,8 +70,8 @@ class SignIn extends Component{
             console.log('json data:', data);
             console.log(this);
 
-            // let's go to the home screen
-            this.props.history.push('/home');
+            // let's go to the profile screen
+            this.props.history.push('/profile');
             this.props.onClose();
             
         }).catch((err) => {              
@@ -79,7 +79,7 @@ class SignIn extends Component{
         });
             
 
-        }    
+    }    
     
     render (){
         return(
