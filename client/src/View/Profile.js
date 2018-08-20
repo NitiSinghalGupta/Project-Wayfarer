@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+import Group from '../component/Group';
 
 export default class Profile extends Component {
 
@@ -13,13 +14,13 @@ export default class Profile extends Component {
 
         let url = 'http://localhost:3000/profile';
 
-        let htmlFnameElement = document.getElementById('ProfileFirstName');
+        let htmlFnameElement = document.getElementById('userFirstName');
         let firstname = htmlFnameElement.value.trim();
 
-        let htmlLnameElement = document.getElementById('ProfileLastName');
+        let htmlLnameElement = document.getElementById('userLastName');
         let lastname = htmlLnameElement.value.trim();
         
-        let htmlLocationElement = document.getElementById('ProfileLocation');
+        let htmlLocationElement = document.getElementById('userLocation');
         let location = htmlLocationElement.value.trim();
 
         let email = this.props.user.email;
@@ -66,53 +67,41 @@ export default class Profile extends Component {
 
     render(){
         return(
-          
-            <div className="container">
+            <div class='container'>
+                <div class="alert alert-primary" role="alert">
+                    User profile saved succesfully.
+                </div>
+                
                 <div className="row">
-                    <div className="col-xs-4 col-xs-offset-4">
+                    <div className='col'>
+                        <form>
+                            <div class="form-group">
+                                <label for="userFirstName">First Name</label>
+                                <input type="text" class="form-control" id="userFirstName" placeholder="First Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="userLastName">Last Name</label>
+                                <input type="text" class="form-control" id="userLastName" placeholder="Last Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="userJoiningDate">Joining Date</label>
+                                <input type="text" class="form-control" id="userJoiningDate" value={ this.props.user ? this.props.user.joinDate : '' } disabled='disabled'/>
+                            </div>
+                            <div class="form-group">
+                                <label for="userLocation">Location</label>
+                                <input type="text" class="form-control" id="userLocation" />
+                            </div>
 
+                            <a href='#' className="btn btn-primary" onClick={ () => this.onSaveClick()}>Update</a>
+                        </form>
+                    </div>
+                    <div className='col'>
                         <img className="img-thumbnail picture" id="ProfileImage" src="http://www.kusalimika.ch/file/2017/02/avaar.jpg" />
-                        <div>
-                            <h5 className="text-bold">Upload a different photo...</h5>
-                        </div>
+                        <h5 className="text-bold">Upload a different photo...</h5>
                         <input type="file" class="text-center center-block file-upload" />
                     </div>
                 </div>
-                <div className="row">
-                    <div class="alert alert-primary" role="alert">
-                        User Profile Saved Succesfully!!!
-                    </div>
-                    <div className="col-xs-4 col-xs-offset-4 text-left">
-                        <div className=" col-xs-6 titleP">First Name:</div>
-                        <div className=" col-xs-6 "><input type="text" className="form-control" id="ProfileFirstName" placeholder="Enter first name"/></div>
-                        <div className="clearfix"></div>
-                        <div className="bot-border"></div>
-
-                        <div className="col-xs-6 titleP ">Last Name:</div>
-                        <div className="col-xs-6"> <input type="text" className="form-control" id="ProfileLastName" placeholder="Enter last name"/></div>
-                        <div className="clearfix"></div>
-                        <div className="bot-border"></div>
-
-                        <div className="col-xs-6 titleP ">Date of Joining:</div>
-                        <div className="col-xs-6"> <input type="text" className="form-control"  placeholder="Enter DoJ"/></div>
-                        <div className="clearfix"></div>
-                        <div className="bot-border"></div>
-
-                        <div className="col-xs-6 titleP ">Location:</div>
-                        <div className="col-xs-6"><input type="text" className="form-control" id="ProfileLocation" placeholder="Enter your location "/></div>
-                        <div className="clearfix"></div>                      
-                        <div className="bot-border"></div>
-
-                        <div class="col-xs-6 titleP "></div>
-                        <div class="col-xs-6"></div>
-                        <div class="clearfix"></div>
-                        <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSaveClick()}>Save</a>
-                        <div class="bot-border"></div>
-                    </div>
-                </div>    
             </div>
-
-
         )
     }
 }
