@@ -7,6 +7,7 @@ import SignIn from './Modal/SignIn';
 import Group from './component/Group';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MyRoutes from './config/Routes';
+import LocalStorage from './component/LocalStorage';
 import CreatePost from './Modal/CreatePost';
 import IfClause from './component/IfClause';
 
@@ -22,8 +23,16 @@ export default class App extends Component {
   state = {
     modalName : '',
     profile: null,
-    email: '',
+    userHasLoggedIn: false,
   }
+
+  checkProtect = () => {
+    if (localStorage.getItem("email") !== '') {
+      this.setState({userHasLoggedIn: true})
+    }
+
+  }
+
 
   getModalToDisplay = () => {
     if(this.state.modalName === 'SignUp') {
@@ -41,11 +50,13 @@ export default class App extends Component {
     if(this.state.modalName === 'SignIn') {
       return <SignIn 
                onClose={ (e) => { this.setModalName('')}} 
+               checkProtect={this.checkProtect}
                onProfileChange={ (data) => {
                  this.setProfileData(data) 
                  console.log('from signin set profile data as: ', data);
                 }
                 }  
+                
               />
     }
 
@@ -76,7 +87,11 @@ export default class App extends Component {
           <Header onModalChange={ (e) => this.setModalName(e) } profile={ this.state.profile } onProfileChange={ (data) => this.setProfileData(data) }/>
    
           <main>
-              <MyRoutes onModalChange={ (name) => this.setModalName(name) } profile={this.state.profile} cities={ cities }/>
+              <MyRoutes onModalChange={ (name) => this.setModalName(name) } 
+                        profile={this.state.profile}
+                        cities={ cities }
+                        userHasLoggedIn={this.state.userHasLoggedIn}
+                        />
             </main>
 
           <Footer />

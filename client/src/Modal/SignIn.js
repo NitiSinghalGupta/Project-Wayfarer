@@ -21,6 +21,21 @@ class SignIn extends Component{
         return true;
     }
 
+    sendFeedback(templateId, senderEmail, receiverEmail, feedback) {
+        window.emailjs
+          .send('mailgun', templateId, {
+            senderEmail,
+            receiverEmail,
+            feedback
+          })
+          .then(res => {
+            this.setState({
+              formEmailSent: true
+            });
+          })
+          // Handle errors here however you like
+          .catch(err => console.error('Failed to send feedback. Error: ', err));
+      }
   
     onSignIn = () => 
     {
@@ -70,7 +85,7 @@ class SignIn extends Component{
             // this.setState( { signedIn: true  } );
             this.props.onProfileChange(response.data);
             console.log('json data:', response.data);
-
+            this.props.checkProtect();
             // let's go to the profile screen
             this.props.history.push('/profile');
             this.props.onClose();
@@ -84,8 +99,7 @@ class SignIn extends Component{
             
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);
-        });
-            
+        });      
 
     }    
     
@@ -95,11 +109,13 @@ class SignIn extends Component{
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                        {/* <div class="avatar">
-                            <img src="/examples/images/avatar.png" alt="Avatar" />
-                        </div> */}
+                        <div class="avatar">
+                            <img src="https://s3.amazonaws.com/cdn.roosterteeth.com/default/tb/user_profile_female.jpg" alt="Avatar" />
+                        </div>
                             <h5 className="modal-title">Sign In</h5>
-                            <button type="button" className="close" data-dismiss="modal" onClick={()=>{this.props.onClose()}} aria-label="Close">
+                            <button type="button" className="close" data-dismiss="modal" 
+                                    onClick={()=>{this.props.onClose()}} 
+                                    aria-label="Close">
                                  <span aria-hidden="true">&times;</span>
                             </button>
                         </div>

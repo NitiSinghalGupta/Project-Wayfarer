@@ -12,6 +12,7 @@ class Header extends Component {
 
     signOutClickHandler = () => {
         this.props.onProfileChange(null);
+        localStorage.removeItem('email');
         this.props.history.push('/');
     }
 
