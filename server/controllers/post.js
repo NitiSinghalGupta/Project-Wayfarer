@@ -78,6 +78,29 @@ function doEditPost(request, response) {
     };
 
     // create new user
+    database.Posts.findOne({ _id : id }, function (error, findPost) {
+        if (error) {
+            console.log('error creating new user');
+
+            // db error
+            response.status(500).send('insert user into database failed');
+            return;
+        }
+
+        // we created settings at user signup
+        settings.sunsign = sunsign;
+
+        // save in the database
+        settings.save(function (error2, saved) {
+            if (error2) {
+                response.status(500).send("something failed");
+                return;
+            }
+
+            response.json(saved);
+    });  
+
+    // create new user
     database.Posts.update(json, function (error, editPost) {
         if (error) {
             console.log('error creating new user');
