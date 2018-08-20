@@ -10,12 +10,17 @@ export default class CreatePost extends Component {
         let title = document.getElementById('postTitle').value;
         let text = document.getElementById('postText').value;
 
+        let emailApp = this.props.profile;
+
+        console.log('email setting from App.js: ', emailApp);
+
         axios.post('http://localhost:3000/post', {
             email: this.props.user.email,
             city: location,
             title: title,
             text: text
         }).then((response) => {     
+            console.log('email sent is: ', response.email);
             console.log('json data:', response.data);
             alert('post added');
         }).catch((e) => {
@@ -48,9 +53,9 @@ export default class CreatePost extends Component {
                         <div className="modal-body">  
                             <form role="form">
 
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="cityDropDown">Location</label>
-                                    <select class="form-control" id="cityDropDown">
+                                    <select className="form-control" id="cityDropDown">
                                         { this.getCityDropDownValues() }
                                     </select>
                                 </div>
@@ -62,7 +67,7 @@ export default class CreatePost extends Component {
                                 
                                 <div className="form-group">      
                                     <label for="exampleFormControlTextarea1">Post Text</label>   
-                                    <textarea class="form-control" id="postText" rows="3"></textarea>
+                                    <textarea className="form-control" id="postText" rows="3"></textarea>
                                     <br/>
                                 </div>
                                 

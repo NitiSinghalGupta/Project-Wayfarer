@@ -77,10 +77,10 @@ class SignIn extends Component{
 
             //use local storage for signin
             ls.setItem('email', email)
-            ls.setItem('password', password)
+             
             //implementing local storage upon signup
             ls.getItem('email');
-            ls.getItem('password');
+            
             
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);

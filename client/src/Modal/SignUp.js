@@ -89,7 +89,7 @@ class  SignUp extends Component{
             this.props.history.push('/home');
             this.props.onClose();
             ls.setItem('email', email)
-            ls.setItem('password', password)
+             
             //implementing local storage upon signup
             ls.getItem('email');
 

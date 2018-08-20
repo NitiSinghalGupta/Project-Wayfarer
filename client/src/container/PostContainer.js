@@ -35,7 +35,7 @@ export default class PostContainer extends Component {
 
     getPosts = () => {
         if(this.state.posts.length <= 0) {
-            return <div class='alert alert-primary'>
+            return <div className='alert alert-primary'>
                 No posts for this city.
             </div>
         }

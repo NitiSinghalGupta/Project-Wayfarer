@@ -21,20 +21,40 @@ export default class App extends Component {
 
   state = {
     modalName : '',
-    profile: null
+    profile: null,
+    email: '',
   }
 
   getModalToDisplay = () => {
     if(this.state.modalName === 'SignUp') {
-      return <SignUp onClose={ (e) => { this.setModalName('')}} onProfileChange={ (data) => this.setProfileData(data) } />
+      return <SignUp 
+                 onClose={ (e) => { this.setModalName('')}} 
+                 onProfileChange={ (data) => {
+                  this.setProfileData(data); 
+                  console.log('from signup set profile data as: ', data);
+                 }
+                } 
+              />
+      
     }
 
     if(this.state.modalName === 'SignIn') {
-      return <SignIn onClose={ (e) => { this.setModalName('')}} onProfileChange={ (data) => this.setProfileData(data) }  />
+      return <SignIn 
+               onClose={ (e) => { this.setModalName('')}} 
+               onProfileChange={ (data) => {
+                 this.setProfileData(data) 
+                 console.log('from signin set profile data as: ', data);
+                }
+                }  
+              />
     }
 
+     
+
     if(this.state.modalName === 'createPost') {
-      return <CreatePost onClose={ (e) => { this.setModalName('')}} cities={ cities } user={ this.state.profile } />
+      return <CreatePost 
+      onClose={ (e) => { this.setModalName('')}} cities={ cities } 
+      user={ this.state.profile } />
     }
 
     return null;
@@ -45,8 +65,8 @@ export default class App extends Component {
   } 
 
   setProfileData = (data) => {
-    console.log('set profile data as: ', data);
     this.setState({ profile : data});
+    console.log('set profile data as: ', data);
   }
 
   render() {
@@ -54,9 +74,9 @@ export default class App extends Component {
       <BrowserRouter>
         <Group>
           <Header onModalChange={ (e) => this.setModalName(e) } profile={ this.state.profile } onProfileChange={ (data) => this.setProfileData(data) }/>
-          {/* <MainBody /> */}
+   
           <main>
-              <MyRoutes onModalChange={ (name) => this.setModalName(name) } user={this.state.profile} cities={ cities }/>
+              <MyRoutes onModalChange={ (name) => this.setModalName(name) } profile={this.state.profile} cities={ cities }/>
             </main>
 
           <Footer />
