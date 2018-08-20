@@ -28,7 +28,9 @@ export default class CityDetails extends Component {
                 </div>
             </div>
             <div className='row'>
-                <PostContainer city={ this.props.city} />
+                <div className='col'>
+                    <PostContainer city={ this.props.city } />
+                </div>
             </div>
         </Group>;
     }

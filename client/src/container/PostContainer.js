@@ -14,6 +14,14 @@ export default class PostContainer extends Component {
         this.refreshCityPosts(this.props.city.name);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(this.props.city.name != nextProps.city.name) {
+            this.refreshCityPosts(nextProps.city.name);
+        }
+
+        return true;
+    }
+
     refreshCityPosts = (cityName) => {
         console.log('loading posts for city: ' + cityName);
 
@@ -26,6 +34,11 @@ export default class PostContainer extends Component {
     }
 
     getPosts = () => {
+        if(this.state.posts.length <= 0) {
+            return <div class='alert alert-primary'>
+                No posts for this city.
+            </div>
+        }
         let results = [];
 
         for(let index = 0; index < this.state.posts.length; index++) {
