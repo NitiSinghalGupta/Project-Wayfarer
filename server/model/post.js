@@ -6,10 +6,14 @@ let postSchema = new mongoose.Schema({
   city : String,
   title: String,
   text : String,
-  date : { 
+  created : { 
     type: Date, 
     default: Date.now
      }, 
+  updated : { 
+    type: Date, 
+    default: Date.now
+     },  
 });
 
 const Posts = mongoose.model('posts', postSchema);

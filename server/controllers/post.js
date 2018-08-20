@@ -20,26 +20,50 @@ function doAddPost(request, response) {
         text: text
     };
 
-            // create new user
-            database.Users.create(json, function (error, newUser) {
-                if (error) {
-                    console.log('error creating new user');
-    
-                    // db error
-                    response.status(500).send('insert user into database failed');
-                    return;
-                }
-    
-                console.log('new user created as: ', newUser);
-                response.json(newUser);
-            });
+    // create new user
+    database.Posts.create(json, function (error, newPost) {
+        if (error) {
+            console.log('error creating new user');
+
+            // db error
+            response.status(500).send('insert user into database failed');
+            return;
+        }
+
+        console.log('new user created as: ', newPost);
+        response.json(newPost);
+    });
 
 }
 
 
 function doEditPost(request, response) {
 
-    
+    let city = request.body.city;
+    let title = request.body.title;
+    let text = request.body.location;
+    let updated = Date.now;
+ 
+    let json = {
+        city: city,
+        title: title,
+        text: text,
+        updated: updated,
+    };
+
+    // create new user
+    database.Posts.update(json, function (error, editPost) {
+        if (error) {
+            console.log('error creating new user');
+
+            // db error
+            response.status(500).send('insert user into database failed');
+            return;
+        }
+
+        console.log('new user created as: ', editPost);
+        response.json(editPost);
+    });    
 
 }
 
@@ -58,7 +82,14 @@ function getPostForCity(request, response) {
 
 function getPostForUser(request, response) {
 
-
+    // find user in database
+    database.Posts.find({ email: email}, function (error, postData) {
+        if (error) {
+            console.log('error finding user');
+            response.status(badHttpRequestCode).send("something went wrong");
+            return;
+        }
+    });
 
 }
 
