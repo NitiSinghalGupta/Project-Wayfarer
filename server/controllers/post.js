@@ -64,19 +64,16 @@ function doAddPost(request, response) {
 
 
 function doEditPost(request, response) {
+    const id = request.params.id;    
+    const email = request.body.email;
+    const title = request.body.title;
+    const text = request.body.text;
 
-    let city = request.body.city;
-    let title = request.body.title;
-    let text = request.body.location;
-    let updated = Date.now;
+    console.log('post id: ' + id);
+    console.log('user email: ' + email);
+    console.log('text: ' + text);
+    console.log('title: ' + title);
  
-    let json = {
-        city: city,
-        title: title,
-        text: text,
-        updated: updated,
-    };
-
     // create new user
     database.Posts.findOne({ _id : id }, function (error, findPost) {
         if (error) {
@@ -87,59 +84,74 @@ function doEditPost(request, response) {
             return;
         }
 
+        // check if the user editing the post is the same as the user
+        // who created this post
+        console.log('user email: ' + email + ' with post email: ' + findPost.email);
+        if(findPost.email != email) {
+            console.log('different user editing this post');
+            response.status(401).send('unauthorized user editing post');
+            return;
+        }
+
         // we created settings at user signup
-        settings.sunsign = sunsign;
+        findPost.title = title;
+        findPost.text = text;
+        findPost.updated = Date.now();
 
         // save in the database
-        settings.save(function (error2, saved) {
+        findPost.save(function (error2, saved) {
             if (error2) {
                 response.status(500).send("something failed");
                 return;
             }
 
             response.json(saved);
-    });  
-
-    // create new user
-    database.Posts.update(json, function (error, editPost) {
-        if (error) {
-            console.log('error creating new user');
-
-            // db error
-            response.status(500).send('insert user into database failed');
-            return;
-        }
-
-        console.log('new user created as: ', editPost);
-        response.json(editPost);
-    });    
-
+        });  
+    });
 }
 
-
 function getPostForCity(request, response) {
+    let city = request.params.city;
+
+    //empty check
+    if (repeatedcode.isEmpty(city)) {
+        console.log("city empty");
+        response.status(badHttpRequestCode).send('city is required');
+        return;
+    }
 
     // find user in database
     database.Posts.find({ city: city}, function (error, results) {
         if (error) {
-            console.log('error finding user');
+            console.log('error finding posts for city');
             response.status(badHttpRequestCode).send("something went wrong");
             return;
         }
+
+        response.json(results);
     });
 }
 
 function getPostForUser(request, response) {
+    let email = request.params.email;
+
+    //empty check
+    if (repeatedcode.isEmpty(email)) {
+        console.log("email empty");
+        response.status(badHttpRequestCode).send('email is required');
+        return;
+    }
 
     // find user in database
-    database.Posts.find({ email: email}, function (error, postData) {
+    database.Posts.find({ email: email}, function (error, results) {
         if (error) {
-            console.log('error finding user');
+            console.log('error finding posts for user');
             response.status(badHttpRequestCode).send("something went wrong");
             return;
         }
-    });
 
+        response.json(results);
+    });
 }
 
 // exporting signin for other files
