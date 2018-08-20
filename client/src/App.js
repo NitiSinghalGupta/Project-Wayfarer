@@ -34,7 +34,7 @@ export default class App extends Component {
     }
 
     if(this.state.modalName === 'createPost') {
-      return <CreatePost onClose={ (e) => { this.setModalName('')}} cities={ cities } />
+      return <CreatePost onClose={ (e) => { this.setModalName('')}} cities={ cities } user={ this.state.profile } />
     }
 
     return null;

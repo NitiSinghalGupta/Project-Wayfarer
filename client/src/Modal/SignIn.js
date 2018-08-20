@@ -68,7 +68,6 @@ class SignIn extends Component{
             // this.setState( { signedIn: true  } );
             this.props.onProfileChange(response.data);
             console.log('json data:', response.data);
-            console.log(this);
 
             // let's go to the profile screen
             this.props.history.push('/profile');
