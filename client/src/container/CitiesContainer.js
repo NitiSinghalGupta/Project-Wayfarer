@@ -7,7 +7,7 @@ export default class CityContainer extends Component {
         let result = [];
 
         this.props.cities.forEach((element) => {
-            result.push(<City city={ element } />);
+            result.push(<City city={ element } onClick={ (city) => this.props.onCityChange(city) } />);
         });
 
         return result;
