@@ -25,8 +25,6 @@ class SignIn extends Component{
     onSignIn = () => 
     {
 
-        let url = 'http://localhost:3000/signin';
-
         let htmlEmailElement = document.getElementById('signinEmail');
         let email = htmlEmailElement.value.trim();
 
@@ -61,7 +59,11 @@ class SignIn extends Component{
         console.log('email is :' , email);
         console.log('pwd is :' , password);
 
-        axios.post('http://localhost:3000/signin', {
+        let url = 'http://localhost:3000/signin';
+
+        let ls = localStorage;
+
+        axios.post(url, {
             email: email,
             password: password
         }).then((response) => {            
@@ -72,6 +74,13 @@ class SignIn extends Component{
             // let's go to the profile screen
             this.props.history.push('/profile');
             this.props.onClose();
+
+            //use local storage for signin
+            ls.setItem('email', email)
+            ls.setItem('password', password)
+            //implementing local storage upon signup
+            ls.getItem('email');
+            ls.getItem('password');
             
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);

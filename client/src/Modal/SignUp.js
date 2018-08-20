@@ -12,6 +12,7 @@ class  SignUp extends Component{
         pwdRequired : false,
         pwdInvalid : false,
         pwdNotSame : false,
+        
     };
 
     checkEmailAddress(email) {
@@ -69,14 +70,29 @@ class  SignUp extends Component{
         console.log('email is :' , email);
         console.log('pwd is :' , password);
 
-        axios.post('http://localhost:3000/signup', {
+        let url = 'http://localhost:3000/signup';
+
+        let ls = localStorage;
+
+        let key = {
             email: email,
             password: password
-        }).then((data) => {            
+        }
+
+        // axios.post(url, {
+        //     email: email,
+        //     password: password
+        // }).then((data) => {     
+            axios.post(url, key).then((data) => {              
             this.setState( { signedUp: true  } );
             console.log('json data:', data);
             this.props.history.push('/home');
             this.props.onClose();
+            ls.setItem('email', email)
+            ls.setItem('password', password)
+            //implementing local storage upon signup
+            ls.getItem('email');
+
         }).catch((err) => {              
             console.log('Error retured API in signUp:', err);
         });
