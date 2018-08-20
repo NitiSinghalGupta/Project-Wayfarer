@@ -3,5 +3,6 @@ module.exports = {
   signup: require('./signup'),
   getCities: require('./getCities'),
   homePage: require('./homePage'),
-  profile: require('./profile')
+  profile: require('./profile'),
+  post: require('./post')
 };
