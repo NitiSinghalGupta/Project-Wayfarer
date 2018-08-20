@@ -15,6 +15,10 @@ class Header extends Component {
         this.props.history.push('/');
     }
 
+    homeClickHandler = () => {
+        this.props.history.push('/home');
+    }
+
     render(){
 
         return (
@@ -31,13 +35,16 @@ class Header extends Component {
                                 <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignIn') }>SignIn</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignUp') }>SignUp <span className="sr-only">(current)</span></a>
+                                <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignUp') }>SignUp</a>
                             </li>  
                         </IfClause>
 
                         <IfClause condition={ this.props.profile != null }>
                             <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut <span className="sr-only">(current)</span></a>
+                                <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
+                            </li>   
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
                             </li>   
                         </IfClause>                  
                     </ul>

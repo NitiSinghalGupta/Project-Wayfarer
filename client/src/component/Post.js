@@ -1,17 +1,49 @@
 import React, {Component} from 'react';
 
 export default class Post extends Component {
+
+    state = {
+        
+    }
+
+    handleChangeDropDown = (e) => {
+        console.log(e.target.value)
+         this.setState({
+          query: e.target.value
+        })
+        
+      }
+
+
+
     render(){
         return(
             <div className='row'>
-                <div className='col-md-3'>
-                    <img className="img-thumbnail" src="https://az760333.vo.msecnd.net/-/media/corporate/footer-section/shutterstock_210836533.jpg?la=en&ts=6e058b19-5741-4545-a575-5d4016a04962" /> 
-                </div>
-                <div class='col-md-9'>
-                    <h5 className="card-title">Post Title</h5>                  
-                    <p className="card-text">this is will be my post text</p>
-                </div>
-            </div>
+             <div class='col-md-9'>
+                <form>  
+                <div className="form-group">    
+                <div className="dropdown">
+                    <label>
+                    Create a New Post                                                                    
+                    <select className="dropdown dropdown-menu" value={this.state.value} onChange={this.handleChangeDropDown}>
+                        <option className="dropdown-item" value="Cat">Cat</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Rat">Rat</option>
+                        <option value="Dinosaurs">Dinosaurs</option>
+                    </select>            
+                    </label>
+                </div>  
+                </div>  
+                <div className="form-group">
+                    <h5 className="card-title">Post Title</h5> 
+                </div>            
+                <div className="form-group">      
+                    <label for="exampleFormControlTextarea1">Post Text</label>   
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>                     
+                </form>      
+             </div>
+            </div> 
         )
     }
 }
