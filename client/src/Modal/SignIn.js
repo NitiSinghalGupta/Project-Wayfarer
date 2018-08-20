@@ -99,7 +99,7 @@ class SignIn extends Component{
                             <form role="form">
                                 <div className="form-group">
                                     <div className="form-group">
-                                       <i class="fa fa-user"></i>
+                                       <i className="fa fa-user"></i>
                                        <input type="text" className="form-control" id="signinEmail" placeholder="Email"/>
                                       
                                     <IfClause condition={ this.state.emailRequired }>

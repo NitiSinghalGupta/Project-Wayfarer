@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 
 let postSchema = new mongoose.Schema({
-  userid : String,
-  postid : String,
-  cityid : String,
-  posttitle: String,
-  posttext : String,
-  postimage : { data: Buffer, contentType: String }
-
+  postID : String,
+  email : String,
+  city : String,
+  title: String,
+  text : String,
+  date : { 
+    type: Date, 
+    default: Date.now
+     }, 
 });
 
 const Posts = mongoose.model('posts', postSchema);
