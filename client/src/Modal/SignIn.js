@@ -64,10 +64,10 @@ class SignIn extends Component{
         axios.post('http://localhost:3000/signin', {
             email: email,
             password: password
-        }).then((data) => {            
+        }).then((response) => {            
             // this.setState( { signedIn: true  } );
-            this.props.onProfileChange(data);
-            console.log('json data:', data);
+            this.props.onProfileChange(response.data);
+            console.log('json data:', response.data);
             console.log(this);
 
             // let's go to the profile screen

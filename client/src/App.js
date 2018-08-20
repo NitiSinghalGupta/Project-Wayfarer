@@ -38,6 +38,7 @@ export default class App extends Component {
   } 
 
   setProfileData = (data) => {
+    console.log('set profile data as: ', data);
     this.setState({ profile : data});
   }
 

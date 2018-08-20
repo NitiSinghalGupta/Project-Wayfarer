@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import Group from '../component/Group';
+import IfClause from '../component/IfClause';
 
 export default class Profile extends Component {
 
     state = {
-
-
+        updateSuccess : false
     }
 
     onSaveClick = () => 
@@ -52,11 +52,10 @@ export default class Profile extends Component {
             location: location,
             // image:image,
         }).then((data) => {            
-            // this.setState( { signedIn: true  } );
-            this.props.onProfileChange(data);
             console.log('json data:', data);
             console.log(this);
             
+            this.setState({ updateSuccess : true});
         }).catch((err) => {              
             console.log('Error retured API Profile:', err);
         });
@@ -68,32 +67,34 @@ export default class Profile extends Component {
     render(){
         return(
             <div className='container'>
-                <div className="alert alert-primary" role="alert">
-                    User profile saved succesfully.
-                </div>
+                <IfClause condition={ this.state.updateSuccess }>
+                    <div className="alert alert-primary" role="alert">
+                        User profile saved succesfully.
+                    </div>
+                </IfClause>
                 
                 <div className="row">
                     <div className='col'>
                         <form>
                             <div className="form-group">
                                 <label for="userEmail">User Email</label>
-                                <input type="text" className="form-control" id="userEmail" value={ this.props.user ? this.props.user.email : '' } disabled='disabled' />
+                                <input type="text" className="form-control" id="userEmail" value={ this.props.user ? this.props.user.email : '' } readOnly/>
                             </div>
                             <div className="form-group">
                                 <label for="userFirstName">First Name</label>
-                                <input type="text" className="form-control" id="userFirstName" placeholder="First Name" />
+                                <input type="text" className="form-control" id="userFirstName" defaultValue={ this.props.user ? this.props.user.firstname : '' }  placeholder="First Name" />
                             </div>
                             <div className="form-group">
                                 <label for="userLastName">Last Name</label>
-                                <input type="text" className="form-control" id="userLastName" placeholder="Last Name" />
+                                <input type="text" className="form-control" id="userLastName" defaultValue={ this.props.user ? this.props.user.lastname : '' } placeholder="Last Name" />
                             </div>
                             <div className="form-group">
                                 <label for="userJoiningDate">Joining Date</label>
-                                <input type="text" className="form-control" id="userJoiningDate" value={ this.props.user ? this.props.user.joinDate : '' } disabled='disabled'/>
+                                <input type="text" className="form-control" id="userJoiningDate" value={ this.props.user ? this.props.user.joinDate : '' } readOnly/>
                             </div>
                             <div className="form-group">
                                 <label for="userLocation">Location</label>
-                                <input type="text" className="form-control" id="userLocation" />
+                                <input type="text" className="form-control" id="userLocation" defaultValue={ this.props.user ? this.props.user.location : '' } />
                             </div>
 
                             <a href='#' className="btn btn-primary" onClick={ () => this.onSaveClick()}>Update</a>

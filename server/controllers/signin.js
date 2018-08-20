@@ -29,28 +29,18 @@ function doSignIn(request, response) {
     }
 
     // find user in database
-    database.Users.findOne({ email: email, password: password }, function (error, results) {
+    database.Users.findOne({ email: email, password: password }, function (error, dbUser) {
         if (error) {
             console.log('error finding user');
             response.status(badHttpRequestCode).send("something went wrong");
             return;
         }
 
-        if (!results || results.length == 0) {
-            console.log('no user in database');
-            response.status(badHttpRequestCode).send("user not found");
-            return;
-        }
-
-        //when the user is found in the db than ie wen results have some value
-        // return value to front end
-        let user = results[0];
-
-        response.json(user);
+        response.json(dbUser);
     });
 }
 
-// exporting signin for other files
+// exporting signin 
 module.exports = {
     doSignIn: doSignIn
 };
