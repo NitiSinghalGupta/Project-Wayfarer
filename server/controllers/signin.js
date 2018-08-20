@@ -21,11 +21,13 @@ function doSignIn(request, response) {
     if (repeatedcode.isEmpty(email)) {
         console.log("username empty");
         response.status(badHttpRequestCode).send('Email address is required');
+        return;
     }
 
     if (repeatedcode.isEmpty(password)) {
         console.log("password");
         response.status(badHttpRequestCode).send('password is required');
+        return;
     }
 
     // find user in database

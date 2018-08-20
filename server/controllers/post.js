@@ -9,15 +9,42 @@ const repeatedcode = require('../repeatedcode');
 var badHttpRequestCode = 400;
 
 function doAddPost(request, response) {
-
     let city = request.body.city;
     let title = request.body.title;
-    let text = request.body.location;
+    let text = request.body.text;
+    
+    let email = request.body.email;
+
+    //empty check
+    if (repeatedcode.isEmpty(email)) {
+        console.log("email empty");
+        response.status(badHttpRequestCode).send('User email is required');
+        return;
+    }
+
+    if (repeatedcode.isEmpty(city)) {
+        console.log("cityname empty");
+        response.status(badHttpRequestCode).send('City is required');
+        return;
+    }
+
+    if (repeatedcode.isEmpty(title)) {
+        console.log("title");
+        response.status(badHttpRequestCode).send('title is required');
+        return;
+    }
+
+    if (repeatedcode.isEmpty(text)) {
+        console.log("text");
+        response.status(badHttpRequestCode).send('text is required');
+        return;
+    }
  
     let json = {
         city: city,
         title: title,
-        text: text
+        text: text,
+        email: email
     };
 
     // create new user
@@ -33,7 +60,6 @@ function doAddPost(request, response) {
         console.log('new user created as: ', newPost);
         response.json(newPost);
     });
-
 }
 
 
