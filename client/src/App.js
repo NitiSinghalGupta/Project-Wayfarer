@@ -8,6 +8,7 @@ import Group from './component/Group';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MyRoutes from './config/Routes';
 import CreatePost from './Modal/CreatePost';
+import IfClause from './component/IfClause';
 
 export default class App extends Component {
 
@@ -52,9 +53,11 @@ export default class App extends Component {
 
           <Footer />
 
-          <div className='modal-container'>
-            { this.getModalToDisplay() }
-          </div>
+          <IfClause condition={ this.state.modalName !== ''}>
+            <div className='modal-container'>
+              { this.getModalToDisplay() }
+            </div>
+          </IfClause>
         </Group>
       </BrowserRouter>
     );

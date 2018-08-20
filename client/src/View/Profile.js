@@ -67,29 +67,33 @@ export default class Profile extends Component {
 
     render(){
         return(
-            <div class='container'>
-                <div class="alert alert-primary" role="alert">
+            <div className='container'>
+                <div className="alert alert-primary" role="alert">
                     User profile saved succesfully.
                 </div>
                 
                 <div className="row">
                     <div className='col'>
                         <form>
-                            <div class="form-group">
+                            <div className="form-group">
+                                <label for="userEmail">User Email</label>
+                                <input type="text" className="form-control" id="userEmail" value={ this.props.user ? this.props.user.email : '' } disabled='disabled' />
+                            </div>
+                            <div className="form-group">
                                 <label for="userFirstName">First Name</label>
-                                <input type="text" class="form-control" id="userFirstName" placeholder="First Name" />
+                                <input type="text" className="form-control" id="userFirstName" placeholder="First Name" />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="userLastName">Last Name</label>
-                                <input type="text" class="form-control" id="userLastName" placeholder="Last Name" />
+                                <input type="text" className="form-control" id="userLastName" placeholder="Last Name" />
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="userJoiningDate">Joining Date</label>
-                                <input type="text" class="form-control" id="userJoiningDate" value={ this.props.user ? this.props.user.joinDate : '' } disabled='disabled'/>
+                                <input type="text" className="form-control" id="userJoiningDate" value={ this.props.user ? this.props.user.joinDate : '' } disabled='disabled'/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="userLocation">Location</label>
-                                <input type="text" class="form-control" id="userLocation" />
+                                <input type="text" className="form-control" id="userLocation" />
                             </div>
 
                             <a href='#' className="btn btn-primary" onClick={ () => this.onSaveClick()}>Update</a>
@@ -98,7 +102,7 @@ export default class Profile extends Component {
                     <div className='col'>
                         <img className="img-thumbnail picture" id="ProfileImage" src="http://www.kusalimika.ch/file/2017/02/avaar.jpg" />
                         <h5 className="text-bold">Upload a different photo...</h5>
-                        <input type="file" class="text-center center-block file-upload" />
+                        <input type="file" className="text-center center-block file-upload" />
                     </div>
                 </div>
             </div>
