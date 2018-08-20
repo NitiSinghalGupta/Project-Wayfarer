@@ -1,7 +1,25 @@
 import React,{Component} from 'react';
 
 export default class CreatePost extends Component {
-    render(){
+
+    handleCreateNewPost = () => {
+        let form = document.getElementById('createPostModal');
+
+
+    }
+
+    getCityDropDownValues() {
+        let result = [];
+
+        for(let index = 0; index < this.props.cities.length; index++) {
+            let item = this.props.cities[index];
+            result.push(<option>{ item.name }</option>)
+        }
+
+        return result;
+    }
+
+    render() {
         return(
             <div className="modal" id='createPostModal' tabIndex="-1" role="dialog">
                 <div className="modal-dialog" role="document">
@@ -13,32 +31,27 @@ export default class CreatePost extends Component {
                                 </button>
                 </div>
                 <div className="modal-body">  
-                <form role="form">          
-                <div className="form-group">    
-                <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
+                <form role="form">
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-                </div>
-                </div>  
-                <div className="form-group">
-                    <h5 className="card-title">Post Title</h5> 
-                    <input type="text" className="form-control" id="signinEmail" placeholder="Post Title here.."/>
-                </div>            
-                <div className="form-group">      
-                    <label for="exampleFormControlTextarea1">Post Text</label>   
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    <br/>
-                <div className="form-group">    
-                    <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSubmit() }>Submit</a>
-                </div>    
-                </div>                     
+                    <div class="form-group">
+                        <label for="cityDropDown">Location</label>
+                        <select class="form-control" id="cityDropDown">
+                            { this.getCityDropDownValues() }
+                        </select>
+                    </div>
+                    
+                    <div className="form-group">
+                        <h5 className="card-title">Post Title</h5> 
+                        <input type="text" className="form-control" id="signinEmail" placeholder="Post Title here.."/>
+                    </div>            
+                    
+                    <div className="form-group">      
+                        <label for="exampleFormControlTextarea1">Post Text</label>   
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <br/>
+                    </div>
+                    
+                    <a href='#' className="btn btn-primary btn-block" onClick={ () => this.handleCreateNewPost() }>Submit</a>
                 </form>      
              </div>
              </div>

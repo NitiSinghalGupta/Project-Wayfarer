@@ -11,7 +11,7 @@ export default class Routes extends Component{
             <Switch>
                 <Route exact path="/" component={ Landing } />
                 <Route exact path="/home" render={ () => {
-                    return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } />
+                    return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } cities={ this.props.cities } />
                  } } />
                  <Route exact path="/profile" render={() => {
                      return <Profile user={this.props.user} />

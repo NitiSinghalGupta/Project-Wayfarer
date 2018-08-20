@@ -10,6 +10,13 @@ import MyRoutes from './config/Routes';
 import CreatePost from './Modal/CreatePost';
 import IfClause from './component/IfClause';
 
+const cities = [{name:"london",country:"United Kingdom",img:""},
+                {name:"Delhi",country:"India",img:""},    
+                {name:"San Jose",country:"United States of America",img:""}, 
+                {name:"Rome",country:"Italy",img:""}, 
+                {name:"Ontario",country:"Canada",img:""}
+]
+
 export default class App extends Component {
 
   state = {
@@ -27,7 +34,7 @@ export default class App extends Component {
     }
 
     if(this.state.modalName === 'createPost') {
-      return <CreatePost onClose={ (e) => { this.setModalName('')}} />
+      return <CreatePost onClose={ (e) => { this.setModalName('')}} cities={ cities } />
     }
 
     return null;
@@ -49,7 +56,7 @@ export default class App extends Component {
           <Header onModalChange={ (e) => this.setModalName(e) } profile={ this.state.profile } onProfileChange={ (data) => this.setProfileData(data) }/>
           {/* <MainBody /> */}
           <main>
-              <MyRoutes onModalChange={ (name) => this.setModalName(name) } user={this.state.profile}/>
+              <MyRoutes onModalChange={ (name) => this.setModalName(name) } user={this.state.profile} cities={ cities }/>
             </main>
 
           <Footer />
