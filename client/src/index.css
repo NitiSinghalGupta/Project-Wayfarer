@@ -170,3 +170,17 @@ i.fas.fa-plus-circle{
 .img-thumbnail {
   width: 200px;
 }
+
+.postbuttons {
+  float:right;
+  
+}
+
+.text-center{
+  align-self: center;
+}
+
+.postrow {
+  display: flex;
+  flex-direction: row;
+}
