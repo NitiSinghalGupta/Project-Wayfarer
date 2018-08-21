@@ -17,7 +17,9 @@ class Routes extends Component{
                         this.props.history.push('/');
                         return null;
                     }                   
-                    return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } cities={ this.props.cities } />
+                    return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } 
+                                     cities={ this.props.cities } 
+                                     user={ this.props.user } />
                 } } />
 
                 <Route exact path="/posts" render={ () => {

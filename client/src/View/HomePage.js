@@ -19,7 +19,9 @@ export default class HomePage extends Component {
                     <CitiesContainer cities={ this.props.cities } onCityChange={ (city) => this.setCurrentCity(city) } />
                 </div>
                 <div className='col-md-9'>
-                    <CityDetails city={ this.state.currentCity ? this.state.currentCity : this.props.cities[0] } onModalChange={ (name) => this.props.onModalChange(name) } /> 
+                    <CityDetails city={ this.state.currentCity ? this.state.currentCity : this.props.cities[0] } 
+                                 onModalChange={ (name) => this.props.onModalChange(name) } 
+                                 user={ this.props.user } /> 
                 </div>
             </div>
         </div>;

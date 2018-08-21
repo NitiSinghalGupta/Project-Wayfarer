@@ -43,14 +43,14 @@ export default class PostContainer extends Component {
 
         for(let index = 0; index < this.state.posts.length; index++) {
             let item = this.state.posts[index];
-            results.push(<Post key={ item['_id'] } post={ item } />);
+            results.push(<Post key={ item['_id'] } post={ item } user={ this.props.user } />);
         }
 
         return results;
     }
 
     render(){
-        return(
+        return (
             <div className="post-container">
                 { this.getPosts() }
             </div>
