@@ -25,15 +25,17 @@ export default class Post extends Component {
         return <Group>
             <div className='row '>
             <div className='col-md-6 postrow'>
-                <div className=" text-center postimage">
+                {/* <div className=" text-center postimage">
                     <img className="img-fluid mx-auto d-block rounded city-image" src="https://az760333.vo.msecnd.net/-/media/corporate/footer-section/shutterstock_210836533.jpg?la=en&ts=6e058b19-5741-4545-a575-5d4016a04962" /> 
+                </div> */}
+                <div className="avatar text-center">
+                            <img className="img-fluid mx-auto d-block rounded city-image"  src="https://s3.amazonaws.com/cdn.roosterteeth.com/default/tb/user_profile_female.jpg" alt="Avatar" />
                 </div>
-                
                 <div className='col-md-6 d-none d-md-block postheader'>
                 
                     <div className='posttitle'><h6>{ this.props.post.title }</h6></div>
                     <br/>
-                    <div><p>By { this.props.post.email }</p></div>
+                    <div><p>{ this.props.post.email }</p></div>
                 </div>
                 </div>
    

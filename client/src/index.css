@@ -189,6 +189,7 @@ i.fas.fa-plus-circle{
   padding-top: 10px;
 }
 
-.postbuttons {
-  padding-right: 0;
+p {
+  color: gray;
+  font-size: 13px;
 }
