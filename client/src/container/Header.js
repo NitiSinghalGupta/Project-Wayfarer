@@ -4,16 +4,14 @@ import IfClause from './../component/IfClause';
 
 class Header extends Component {
 
-    // onSignOut = () => {
-    //     console.log("signout handler called")
-    //     this.props.history.push('/');
-
-    // }
-
     signOutClickHandler = () => {
         this.props.onProfileChange(null);
         localStorage.removeItem('email');
         this.props.history.push('/');
+    }
+
+    profileClickHandler = () => {
+        this.props.history.push('/profile');
     }
 
     homeClickHandler = () => {
@@ -44,8 +42,9 @@ class Header extends Component {
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
                             </li>   
-                        </IfClause>     
-                        <IfClause condition={ this.props.profile != null }>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
+                            </li>   
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
                             </li>   

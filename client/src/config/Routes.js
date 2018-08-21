@@ -3,7 +3,6 @@ import {Switch, Route} from 'react-router-dom';
 import  HomePage from '../View/HomePage';
 import  Landing from '../View/Landing';
 import  Profile from '../View/Profile';
-import LocalStorage from '../component/LocalStorage';
 
 export default class Routes extends Component{
 

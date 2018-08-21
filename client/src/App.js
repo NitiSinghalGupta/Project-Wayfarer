@@ -7,7 +7,6 @@ import SignIn from './Modal/SignIn';
 import Group from './component/Group';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MyRoutes from './config/Routes';
-import LocalStorage from './component/LocalStorage';
 import CreatePost from './Modal/CreatePost';
 import IfClause from './component/IfClause';
 

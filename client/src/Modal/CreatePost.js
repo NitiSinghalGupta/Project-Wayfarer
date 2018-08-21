@@ -22,7 +22,9 @@ export default class CreatePost extends Component {
         }).then((response) => {     
             console.log('email sent is: ', response.email);
             console.log('json data:', response.data);
+            
             alert('post added');
+            this.props.onClose();
         }).catch((e) => {
             console.log('error creating post', e);
         });
