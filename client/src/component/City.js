@@ -6,7 +6,7 @@ export default class City extends Component {
         return(
             <div className="row postcard">
                 <div className="col">
-                    <img className="img-thumbnail city-image" onClick={ () => this.props.onClick(this.props.city) } src="https://az760333.vo.msecnd.net/-/media/corporate/footer-section/shutterstock_210836533.jpg?la=en&ts=6e058b19-5741-4545-a575-5d4016a04962" /> 
+                    <img className="img-thumbnail city-image" onClick={ () => this.props.onClick(this.props.city) } src={this.props.city.img} /> 
                 </div>
                 <div className="col">
                     <a href='#' onClick={ () => this.props.onClick(this.props.city) } >

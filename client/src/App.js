@@ -11,11 +11,11 @@ import CreatePost from './Modal/CreatePost';
 import IfClause from './component/IfClause';
 import EditPost from './Modal/EditPost';
 
-const cities = [{name:"london",country:"United Kingdom",img:""},
-                {name:"Delhi",country:"India",img:""},    
-                {name:"San Jose",country:"United States of America",img:""}, 
-                {name:"Rome",country:"Italy",img:""}, 
-                {name:"Ontario",country:"Canada",img:""}
+const cities = [{name:"london",country:"United Kingdom",img:"http://www.haxball.co/wp-content/uploads/2018/02/london-best-tourist-attractions-london-tourist-attractions-travel-guide-of-best-things-to-see.jpg"},
+                {name:"Delhi",country:"India",img:"https://pbs.twimg.com/profile_images/632540125751177216/nzKLbt71_400x400.png"},    
+                {name:"San Jose",country:"United States of America",img:"https://i.pinimg.com/originals/41/9a/6b/419a6bdc7f7ec5fb6f6dc7e4f5f8adf3.jpg"}, 
+                {name:"Rome",country:"Italy",img:"http://italytravelista.com/wp-content/uploads/2009/04/best-of-rome-tour.jpg"}, 
+                {name:"Ontario",country:"Canada",img:"http://www.studentworldonline.com/userfiles/images/Canada%20-%20Lake%20Ontario.jpg"}
 ]
 
 export default class App extends Component {
