@@ -23,21 +23,21 @@ export default class Post extends Component {
 
     render() {
         return <Group>
-            <div className='row'>
+            <div className='row '>
             <div className='col-md-6 postrow'>
                 <div className=" text-center postimage">
                     <img className="img-fluid mx-auto d-block rounded city-image" src="https://az760333.vo.msecnd.net/-/media/corporate/footer-section/shutterstock_210836533.jpg?la=en&ts=6e058b19-5741-4545-a575-5d4016a04962" /> 
                 </div>
                 
-                <div className='col-md-6 postheader'>
+                <div className='col-md-6 d-none d-md-block postheader'>
                 
-                    <div>{ this.props.post.title }</div>
+                    <div className='posttitle'><h6>{ this.props.post.title }</h6></div>
                     <br/>
-                    <div>written by { this.props.post.email }</div>
+                    <div><p>By { this.props.post.email }</p></div>
                 </div>
                 </div>
    
-                <div className='col-md-2 postbuttons'>
+                <div className='col  offset-md-4 postbuttons'>
                     <IfClause condition={ this.props.user.email == this.props.post.email }>
                         <a href='#' onClick={ () => this.editPostClickHandler() }>Edit</a> | <a href='#' onClick={ () => this.deleteClickHandler() } >Delete</a>
                     </IfClause>

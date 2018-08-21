@@ -184,3 +184,11 @@ i.fas.fa-plus-circle{
   display: flex;
   flex-direction: row;
 }
+
+.posttitle{
+  padding-top: 10px;
+}
+
+.postbuttons {
+  padding-right: 0;
+}
