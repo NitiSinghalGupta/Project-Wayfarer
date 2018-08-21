@@ -20,22 +20,6 @@ class SignIn extends Component{
 
         return true;
     }
-
-    sendFeedback(templateId, senderEmail, receiverEmail, feedback) {
-        window.emailjs
-          .send('mailgun', templateId, {
-            senderEmail,
-            receiverEmail,
-            feedback
-          })
-          .then(res => {
-            this.setState({
-              formEmailSent: true
-            });
-          })
-          // Handle errors here however you like
-          .catch(err => console.error('Failed to send feedback. Error: ', err));
-      }
   
     onSignIn = () => 
     {
