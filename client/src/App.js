@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MyRoutes from './config/Routes';
 import CreatePost from './Modal/CreatePost';
 import IfClause from './component/IfClause';
+import EditPost from './Modal/EditPost';
 
 const cities = [{name:"london",country:"United Kingdom",img:""},
                 {name:"Delhi",country:"India",img:""},    
@@ -21,7 +22,8 @@ export default class App extends Component {
 
   state = {
     modalName : '',
-    profile: null
+    profile: null,
+    editablePost: null
   }
 
   componentWillMount() {
@@ -65,6 +67,12 @@ export default class App extends Component {
       user={ this.state.profile } />
     }
 
+    if(this.state.modalName === 'editPost') {
+      return <EditPost onClose={ (e) => { this.setModalName('')}} 
+                       post={ this.state.editablePost } 
+                       user={ this.state.profile } />
+    }
+
     return null;
   }
 
@@ -77,6 +85,11 @@ export default class App extends Component {
     console.log('set profile data as: ', data);
   }
 
+  onPostEdit = (post) => {
+    this.setState({ editablePost : post});
+    this.setModalName('editPost');
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -85,7 +98,8 @@ export default class App extends Component {
    
           <main>
               <MyRoutes onModalChange={ (name) => this.setModalName(name) } 
-                        user={this.state.profile} cities={ cities } />
+                        user={this.state.profile} cities={ cities } 
+                        onPostEdit={ (post) => this.onPostEdit(post) } />
             </main>
 
           <Footer />

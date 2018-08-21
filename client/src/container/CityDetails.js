@@ -29,7 +29,8 @@ export default class CityDetails extends Component {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <PostContainer city={ this.props.city } user={ this.props.user } />
+                    <PostContainer city={ this.props.city } user={ this.props.user } 
+                                   onPostEdit={ (post) => this.props.onPostEdit(post) } />
                 </div>
             </div>
         </Group>;

@@ -5,6 +5,10 @@ import axios from 'axios';
 
 export default class Post extends Component {
 
+    editPostClickHandler = () => {
+        this.props.onPostEdit(this.props.post);
+    }
+
     deleteClickHandler = () => {
         let confirmed = window.confirm('Do you really want to delete this post?');
         if(confirmed) {
@@ -26,7 +30,7 @@ export default class Post extends Component {
                 </div>
                 <div className='col-md-2'>
                     <IfClause condition={ this.props.user.email == this.props.post.email }>
-                        <a href='#'>Edit</a> | <a href='#' onClick={ () => this.deleteClickHandler() } >Delete</a>
+                        <a href='#' onClick={ () => this.editPostClickHandler() }>Edit</a> | <a href='#' onClick={ () => this.deleteClickHandler() } >Delete</a>
                     </IfClause>
                 </div>
             </div>

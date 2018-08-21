@@ -33,7 +33,8 @@ export default class UserPosts extends React.Component {
             let item = this.state.posts[index];
             results.push(<Post key={ item['_id'] } post={ item } 
                                user={ this.props.user } 
-                               onPostDeleted={ () => this.loadUserPosts() } />);
+                               onPostDeleted={ () => this.loadUserPosts() } 
+                               onPostEdit={ (post) => this.props.onPostEdit(post) } />);
         }
 
         return results;

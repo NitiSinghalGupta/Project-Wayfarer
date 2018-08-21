@@ -21,6 +21,7 @@ export default class HomePage extends Component {
                 <div className='col-md-9'>
                     <CityDetails city={ this.state.currentCity ? this.state.currentCity : this.props.cities[0] } 
                                  onModalChange={ (name) => this.props.onModalChange(name) } 
+                                 onPostEdit={ (post) => this.props.onPostEdit(post) } 
                                  user={ this.props.user } /> 
                 </div>
             </div>

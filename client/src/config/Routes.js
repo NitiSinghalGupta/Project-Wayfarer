@@ -19,7 +19,8 @@ class Routes extends Component{
                     }                   
                     return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } 
                                      cities={ this.props.cities } 
-                                     user={ this.props.user } />
+                                     user={ this.props.user } 
+                                     onPostEdit={ (post) => this.props.onPostEdit(post) } />
                 } } />
 
                 <Route exact path="/posts" render={ () => {
@@ -28,7 +29,8 @@ class Routes extends Component{
                         return null;
                     }
 
-                    return <UserPosts user={this.props.user} />
+                    return <UserPosts user={this.props.user} 
+                                    onPostEdit={ (post) => this.props.onPostEdit(post) } />
                 } } />
                     
                 <Route exact path="/profile" render={() => {

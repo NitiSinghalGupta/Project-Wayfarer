@@ -45,7 +45,8 @@ export default class PostContainer extends Component {
             let item = this.state.posts[index];
             results.push(<Post key={ item['_id'] } post={ item } 
                                user={ this.props.user } 
-                               onPostDeleted={ () => this.refreshCityPosts(this.props.city.name) } />);
+                               onPostDeleted={ () => this.refreshCityPosts(this.props.city.name) } 
+                               onPostEdit={ (post) => this.props.onPostEdit(post) } />);
         }
 
         return results;
