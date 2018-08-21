@@ -3,22 +3,35 @@ import {Switch, Route} from 'react-router-dom';
 import  HomePage from '../View/HomePage';
 import  Landing from '../View/Landing';
 import  Profile from '../View/Profile';
-import IfClause from '../component/IfClause';
+import { withRouter } from 'react-router-dom';
 
-export default class Routes extends Component{
+class Routes extends Component{
 
     render() {
         return <Switch>
                 <Route exact path="/" component={ Landing } />
                     
                 <Route exact path="/home" render={ () => {
+                    if(!this.props.user) {
+                        this.props.history.push('/');
+                        return null;
+                    }                   
                     return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } cities={ this.props.cities } />
                 } } />
                     
                 <Route exact path="/profile" render={() => {
-                    return <Profile user={this.props.user} />
+                    if(!this.props.user) {
+                        this.props.history.push('/');
+                        return null;
+                    }
+
+                    return <Profile user={this.props.user} />;
                 }} />
             </Switch>
     }
 
 }
+
+const MyRoutes = withRouter(Routes);
+
+export default MyRoutes;
