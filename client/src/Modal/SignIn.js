@@ -88,9 +88,6 @@ class SignIn extends Component{
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                        <div class="avatar">
-                            <img src="https://s3.amazonaws.com/cdn.roosterteeth.com/default/tb/user_profile_female.jpg" alt="Avatar" />
-                        </div>
                             <h5 className="modal-title">Sign In</h5>
                             <button type="button" className="close" data-dismiss="modal" 
                                     onClick={()=>{this.props.onClose()}} 
@@ -121,6 +118,7 @@ class SignIn extends Component{
                                     <IfClause condition={ this.state.pwdInvalid }>
                                     <p className="form-text text-muted error-message">Password Incorrect</p>
                                     </IfClause>
+                                    <br/>
                                     <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSignIn() }>Sign In</a>
                                     </div>
                                 </div>

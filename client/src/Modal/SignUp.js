@@ -117,14 +117,17 @@ class  SignUp extends Component{
                                     <IfClause condition={ this.state.emailInvalid }>
                                         <p className="form-text text-muted error-message">Invalid Email</p>
                                     </IfClause>    
+                                    <br />
                                     <input type="password" className="form-control" id="signupPassword" placeholder="Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                         <p className="form-text text-muted error-message">Password required</p>
-                                    </IfClause>    
+                                    </IfClause>  
+                                    <br/>  
                                     <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                         <p className="form-text text-muted error-message">Re-enter your password to confirm</p>
                                     </IfClause>    
+                                    <br/>
                                     <IfClause condition={ this.state.pwdNotSame }>
                                         <p className="form-text text-muted error-message">Passwords do not match</p>
                                     </IfClause>    

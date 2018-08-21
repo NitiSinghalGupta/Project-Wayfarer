@@ -46,13 +46,16 @@ class Header extends Component {
                         <IfClause condition={ this.props.profile != null }>
                         <ul className="nav navbar-nav">
                             <li className="nav-item">
+                                <a className="nav-link active" href="#">Welcome, {this.props.profile.email}</a>
+                            </li>                           
+                            <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
                             </li> 
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.postClickHandler() } >Posts</a>
                             </li>   
                             <li className="nav-item">
-                                <a className="nav-link active" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
+                                <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
                             </li>   
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
