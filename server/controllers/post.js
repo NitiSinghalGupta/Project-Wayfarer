@@ -133,7 +133,7 @@ function getPostForCity(request, response) {
 }
 
 function getPostForUser(request, response) {
-    let email = request.params.email;
+    let email = request.query.email;
 
     //empty check
     if (repeatedcode.isEmpty(email)) {
