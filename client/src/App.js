@@ -87,7 +87,7 @@ export default class App extends Component {
    
           <main>
               <MyRoutes onModalChange={ (name) => this.setModalName(name) } 
-                        profile={this.state.profile}
+                        user={this.state.profile}
                         cities={ cities }
                         userHasLoggedIn={this.state.userHasLoggedIn}
                         />
