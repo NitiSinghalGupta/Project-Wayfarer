@@ -121,7 +121,7 @@ function getPostForCity(request, response) {
     }
 
     // find user in database
-    database.Posts.find({ city: city}, function (error, results) {
+    database.Posts.find({ city: city}, null, { sort : { updated : -1 } }, function (error, results) {
         if (error) {
             console.log('error finding posts for city');
             response.status(badHttpRequestCode).send("something went wrong");
@@ -143,7 +143,7 @@ function getPostForUser(request, response) {
     }
 
     // find user in database
-    database.Posts.find({ email: email}, function (error, results) {
+    database.Posts.find({ email: email}, null, { sort : { updated : -1 } }, function (error, results) {
         if (error) {
             console.log('error finding posts for user');
             response.status(badHttpRequestCode).send("something went wrong");
