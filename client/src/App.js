@@ -21,8 +21,15 @@ export default class App extends Component {
 
   state = {
     modalName : '',
-    profile: null,
-    userHasLoggedIn: false,
+    profile: null
+  }
+
+  componentWillMount() {
+    let profile = localStorage.getItem('profile');
+    if(profile) {
+      let parsedProfile = JSON.parse(profile);
+      this.setState({ profile : parsedProfile });
+    }
   }
 
   getModalToDisplay = () => {
@@ -78,10 +85,7 @@ export default class App extends Component {
    
           <main>
               <MyRoutes onModalChange={ (name) => this.setModalName(name) } 
-                        user={this.state.profile}
-                        cities={ cities }
-                        userHasLoggedIn={this.state.userHasLoggedIn}
-                        />
+                        user={this.state.profile} cities={ cities } />
             </main>
 
           <Footer />

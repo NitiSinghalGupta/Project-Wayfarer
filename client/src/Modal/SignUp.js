@@ -72,8 +72,6 @@ class  SignUp extends Component{
 
         let url = 'http://localhost:3000/signup';
 
-        let ls = localStorage;
-
         let key = {
             email: email,
             password: password
@@ -84,15 +82,14 @@ class  SignUp extends Component{
         //     password: password
         // }).then((data) => {     
             axios.post(url, key).then((data) => {              
-            this.setState( { signedUp: true  } );
-            console.log('json data:', data);
-            this.props.history.push('/home');
-            this.props.onClose();
-            ls.setItem('email', email)
+            // this.setState( { signedUp: true  } );
+                this.props.onProfileChange(data);
+                console.log('json data:', data);
+                this.props.history.push('/home');
+                this.props.onClose();
              
             //implementing local storage upon signup
-            ls.getItem('email');
-
+            localStorage.setItem('profile', JSON.stringify(data));
         }).catch((err) => {              
             console.log('Error retured API in signUp:', err);
         });

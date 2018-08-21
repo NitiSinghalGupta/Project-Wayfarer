@@ -76,8 +76,6 @@ class SignIn extends Component{
 
         let url = 'http://localhost:3000/signin';
 
-        let ls = localStorage;
-
         axios.post(url, {
             email: email,
             password: password
@@ -85,15 +83,15 @@ class SignIn extends Component{
             // this.setState( { signedIn: true  } );
             this.props.onProfileChange(response.data);
             console.log('json data:', response.data);
+
             // let's go to the profile screen
             this.props.history.push('/profile');
             this.props.onClose();
 
             //use local storage for signin
-            ls.setItem('email', email)
-             
-            //implementing local storage upon signup
-            ls.getItem('email');
+            let profile = response.data;
+            profile.password = null;
+            localStorage.setItem('profile', JSON.stringify(profile));
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);
         });      
