@@ -64,7 +64,7 @@ export default class CreatePost extends Component {
                                 
                                 <div className="form-group">
                                     <h5 className="card-title">Post Title</h5> 
-                                    <input type="text" className="form-control" id="postTitle" placeholder="Post Title here.."/>
+                                    <input type="text" className="form-control" id="postTitle" placeholder="Post Title here.. " maxlength="200"/>
                                 </div>            
                                 
                                 <div className="form-group">      

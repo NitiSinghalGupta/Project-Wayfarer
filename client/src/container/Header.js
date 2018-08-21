@@ -26,6 +26,7 @@ class Header extends Component {
 
         return (
             <header className='mb-auto'>
+            
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                     <a className="navbar-brand" href="#">Wayfarer</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +44,7 @@ class Header extends Component {
                         </IfClause>
 
                         <IfClause condition={ this.props.profile != null }>
+                        <ul className="nav navbar-nav">
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
                             </li> 
@@ -50,11 +52,12 @@ class Header extends Component {
                                 <a className="nav-link" href="#" onClick={ () => this.postClickHandler() } >Posts</a>
                             </li>   
                             <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
+                                <a className="nav-link active" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
                             </li>   
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
                             </li>   
+                        </ul>    
                         </IfClause>     
                                          
                     </ul>
