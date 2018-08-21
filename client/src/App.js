@@ -25,14 +25,6 @@ export default class App extends Component {
     userHasLoggedIn: false,
   }
 
-  checkProtect = () => {
-    if (localStorage.getItem("email") !== '') {
-      this.setState({userHasLoggedIn: true})
-    }
-
-  }
-
-
   getModalToDisplay = () => {
     if(this.state.modalName === 'SignUp') {
       return <SignUp 
@@ -49,7 +41,6 @@ export default class App extends Component {
     if(this.state.modalName === 'SignIn') {
       return <SignIn 
                onClose={ (e) => { this.setModalName('')}} 
-               checkProtect={this.checkProtect}
                onProfileChange={ (data) => {
                  this.setProfileData(data) 
                  console.log('from signin set profile data as: ', data);

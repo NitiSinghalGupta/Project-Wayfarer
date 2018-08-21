@@ -85,7 +85,6 @@ class SignIn extends Component{
             // this.setState( { signedIn: true  } );
             this.props.onProfileChange(response.data);
             console.log('json data:', response.data);
-            this.props.checkProtect();
             // let's go to the profile screen
             this.props.history.push('/profile');
             this.props.onClose();
@@ -95,8 +94,6 @@ class SignIn extends Component{
              
             //implementing local storage upon signup
             ls.getItem('email');
-            
-            
         }).catch((err) => {              
             console.log('Error retured API SignIn:', err);
         });      
