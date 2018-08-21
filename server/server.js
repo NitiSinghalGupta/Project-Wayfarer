@@ -37,6 +37,7 @@ app.post('/signin', controllers.signin.doSignIn);
 app.post('/profile',controllers.profile.getProfile);
 
 app.post('/post/:id',controllers.post.doEditPost);
+app.delete('/post/:id',controllers.post.doDeletePost);
 app.post('/post',controllers.post.doAddPost);
 
 app.get('/posts',controllers.post.getPostForUser);

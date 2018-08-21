@@ -62,6 +62,22 @@ function doAddPost(request, response) {
     });
 }
 
+function doDeletePost(request, response) {
+    const id = request.params.id;    
+    const email = request.query.email;
+
+    database.Posts.deleteOne({ _id : id }, function(error, deletedPost) {
+        if (error) {
+            console.log('error creating new user');
+
+            // db error
+            response.status(500).send('insert user into database failed');
+            return;
+        }
+
+        response.json(deletedPost);
+    });
+}
 
 function doEditPost(request, response) {
     const id = request.params.id;    
@@ -159,6 +175,6 @@ module.exports = {
     doAddPost : doAddPost,
     doEditPost : doEditPost,
     getPostForCity : getPostForCity,
-    getPostForUser : getPostForUser 
-
+    getPostForUser : getPostForUser,
+    doDeletePost : doDeletePost
 };

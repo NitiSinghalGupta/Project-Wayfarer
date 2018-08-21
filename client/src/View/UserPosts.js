@@ -9,6 +9,10 @@ export default class UserPosts extends React.Component {
     }
 
     componentWillMount() {
+        this.loadUserPosts();
+    }
+
+    loadUserPosts = () => {
         axios.get('http://localhost:3000/posts?email=' + this.props.user.email)
             .then((response) => {
                 this.setState({ posts : response.data });
@@ -27,7 +31,9 @@ export default class UserPosts extends React.Component {
 
         for(let index = 0; index < this.state.posts.length; index++) {
             let item = this.state.posts[index];
-            results.push(<Post key={ item['_id'] } post={ item } user={ this.props.user } />);
+            results.push(<Post key={ item['_id'] } post={ item } 
+                               user={ this.props.user } 
+                               onPostDeleted={ () => this.loadUserPosts() } />);
         }
 
         return results;
