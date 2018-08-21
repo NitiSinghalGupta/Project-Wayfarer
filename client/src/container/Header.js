@@ -14,6 +14,10 @@ class Header extends Component {
         this.props.history.push('/profile');
     }
 
+    postClickHandler = () => {
+        this.props.history.push('/posts');
+    }
+
     homeClickHandler = () => {
         this.props.history.push('/home');
     }
@@ -41,6 +45,9 @@ class Header extends Component {
                         <IfClause condition={ this.props.profile != null }>
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
+                            </li> 
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.postClickHandler() } >Posts</a>
                             </li>   
                             <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>

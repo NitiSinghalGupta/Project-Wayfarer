@@ -4,6 +4,7 @@ import  HomePage from '../View/HomePage';
 import  Landing from '../View/Landing';
 import  Profile from '../View/Profile';
 import { withRouter } from 'react-router-dom';
+import UserPosts from '../View/UserPosts';
 
 class Routes extends Component{
 
@@ -17,6 +18,15 @@ class Routes extends Component{
                         return null;
                     }                   
                     return <HomePage onModalChange={ (name) => this.props.onModalChange(name) } cities={ this.props.cities } />
+                } } />
+
+                <Route exact path="/posts" render={ () => {
+                    if(!this.props.user) {
+                        this.props.history.push('/');
+                        return null;
+                    }
+
+                    return <UserPosts user={this.props.user} />
                 } } />
                     
                 <Route exact path="/profile" render={() => {
