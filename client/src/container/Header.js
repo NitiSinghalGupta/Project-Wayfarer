@@ -39,7 +39,7 @@ class Header extends Component {
             
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                     <a className="navbar-brand" href="#" onClick={ this.homeOrLandingHandler }>Wayfarer</a>
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav ml-auto">
                         
                         <IfClause condition={ !this.props.profile }>
                             <li className="nav-item"> 
@@ -51,23 +51,21 @@ class Header extends Component {
                         </IfClause>
 
                         <IfClause condition={ this.props.profile != null }>
-                            <ul className="nav navbar-nav">
-                                <li className="nav-item">
-                                    <a className="nav-link active" href="#"  welcomeNoteHandler={ this.welcomeNoteHandler } >Welcome, {this.props.profile ? this.props.profile.email : ''}</a>
-                                </li>                           
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
-                                </li> 
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" onClick={ () => this.postClickHandler() } >Posts</a>
-                                </li>   
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
-                                </li>   
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
-                                </li>   
-                            </ul>    
+                            <li className="nav-item">
+                                <a className="nav-link active" href="#"  welcomeNoteHandler={ this.welcomeNoteHandler } >Welcome, {this.props.profile ? this.props.profile.email : ''}</a>
+                            </li>                           
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.homeClickHandler() } >Home</a>
+                            </li> 
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.postClickHandler() } >Posts</a>
+                            </li>   
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
+                            </li>   
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
+                            </li>   
                         </IfClause>     
                                          
                     </ul>
