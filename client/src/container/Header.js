@@ -43,10 +43,10 @@ class Header extends Component {
                         
                         <IfClause condition={ !this.props.profile }>
                             <li className="nav-item"> 
-                                <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignIn') }>SignIn</a>
+                                <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignIn') }>Sign In</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignUp') }>SignUp</a>
+                                <a className="nav-link" href="#" onClick={ () => this.props.onModalChange('SignUp') }>Sign Up</a>
                             </li>  
                         </IfClause>
 
@@ -64,7 +64,7 @@ class Header extends Component {
                                 <a className="nav-link" href="#" onClick={ () => this.profileClickHandler() } >Profile</a>
                             </li>   
                             <li className="nav-item">
-                                <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >SignOut</a>
+                                <a className="nav-link" href="#" onClick={ () => this.signOutClickHandler() } >Sign Out</a>
                             </li>   
                         </IfClause>     
                                          

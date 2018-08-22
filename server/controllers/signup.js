@@ -126,8 +126,6 @@ nodemailer.createTestAccount((err, account) => {
 });
 }
 
-
-
 //exporting so that available to all other classes
 module.exports = {
     doSignUp: doSignUp

@@ -98,8 +98,11 @@ class SignIn extends Component{
                         <div className="modal-body">
                             <form role="form">
                                 <div className="form-group">
-                                    <div className="form-group">
-                                       <i className="fa fa-user"></i>
+                                    <div className="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i className="fa fa-user"></i></div>
+                                    </div>
+                                       
                                        <input type="text" className="form-control" id="signinEmail" placeholder="Email"/>
                                       
                                     <IfClause condition={ this.state.emailRequired }>
@@ -109,8 +112,12 @@ class SignIn extends Component{
                                         <p className="form-text text-muted error-message">Invalid Email</p>                                    
                                     </IfClause>
                                     </div>
-                                    <div className="form-group">
-                                    <i className="fa fa-lock"></i>
+                                    <br/>
+                                    <div className="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i className="fa fa-lock"></i>
+                                        </div>
+                                        </div>
                                     <input type="password" className="form-control" id="signinPassword" placeholder="Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                     <p className="form-text text-muted error-message">Password required</p>
@@ -118,9 +125,9 @@ class SignIn extends Component{
                                     <IfClause condition={ this.state.pwdInvalid }>
                                     <p className="form-text text-muted error-message">Password Incorrect</p>
                                     </IfClause>
+                                    </div>
                                     <br/>
                                     <a href='#' className="btn btn-primary btn-block" onClick={ () => this.onSignIn() }>Sign In</a>
-                                    </div>
                                 </div>
                             </form>
                         </div>

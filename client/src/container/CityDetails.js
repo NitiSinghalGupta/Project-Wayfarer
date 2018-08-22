@@ -6,7 +6,7 @@ export default class CityDetails extends Component {
     
     render() {
         return <Group>
-            <div className='row'>
+            <div className='row city-details-section'>
                 <div className='col-md-3'>
                     <h1>{ this.props.city.name }</h1>
                     <br />
@@ -17,7 +17,7 @@ export default class CityDetails extends Component {
                 </div>
             </div>
 
-            <div className="row">
+            <div className="row post-section">
                 <div className='col'>
                     <h1>Posts</h1>
                 </div>

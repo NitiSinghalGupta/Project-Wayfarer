@@ -11,11 +11,14 @@ import CreatePost from './Modal/CreatePost';
 import IfClause from './component/IfClause';
 import EditPost from './Modal/EditPost';
 
-const cities = [{name:"london",country:"United Kingdom",img:"http://www.haxball.co/wp-content/uploads/2018/02/london-best-tourist-attractions-london-tourist-attractions-travel-guide-of-best-things-to-see.jpg"},
-                {name:"Delhi",country:"India",img:"https://pbs.twimg.com/profile_images/632540125751177216/nzKLbt71_400x400.png"},    
-                {name:"San Jose",country:"United States of America",img:"https://i.pinimg.com/originals/41/9a/6b/419a6bdc7f7ec5fb6f6dc7e4f5f8adf3.jpg"}, 
-                {name:"Rome",country:"Italy",img:"http://italytravelista.com/wp-content/uploads/2009/04/best-of-rome-tour.jpg"}, 
-                {name:"Ontario",country:"Canada",img:"http://www.studentworldonline.com/userfiles/images/Canada%20-%20Lake%20Ontario.jpg"}
+const cities = [{name:"london",country:"United Kingdom",img:"/images/london.jpg"},
+                {name:"New York",country:"United States of America",img:"/images/niagra.jpg"},
+                {name:"San Francisco",country:"United States of America",img:"/images/gg.jpg"},
+                {name:"Delhi",country:"India",img:"/images/taj.jpg"},    
+                {name:"San Jose",country:"United States of America",img:"/images/roses.jpg"}, 
+                {name:"Rome",country:"Italy",img:"/images/rome.jpg"}, 
+                {name:"Ontario",country:"Canada",img:"/images/canada.jpg"}
+                
 ]
 
 export default class App extends Component {
@@ -105,6 +108,7 @@ export default class App extends Component {
           <Footer />
 
           <IfClause condition={ this.state.modalName !== ''}>
+            <div className='modal-backdrop'></div>
             <div className='modal-container'>
               { this.getModalToDisplay() }
             </div>

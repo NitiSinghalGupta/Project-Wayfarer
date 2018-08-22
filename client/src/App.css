@@ -3,9 +3,9 @@ html, body {
   height: 100%;
 }
 
-main {
-  margin-bottom: 50px;
-}
+/* main {
+  min-height: 100%;
+} */
 
 .carousel-container {
   height: 680px !important;
@@ -61,4 +61,28 @@ img.carousel-image {
 }
 .city-image {
   width: 50px;
+}
+
+.city-card {
+  margin: 20px 0;
+}
+.post-image {
+  width: 100px;
+}
+.post-card {
+  margin: 20px 0;
+}
+.sidebar {
+  background-color: rgb(248, 249, 250);
+  border-right: 1px solid rgb(0,0,0,0.1);
+}
+.post-section {
+  margin-top: 20px;
+}
+.city-details-section {
+  margin-top: 20px;
+}
+.avatar-section {
+  padding-top: 30px;
+  text-align: center;
 }

@@ -109,7 +109,10 @@ class  SignUp extends Component{
                         </div>
                         <div className="modal-body">
                             <form role="form">
-                                <div className="form-group">
+                                <div className="input-group">
+                                <div class="input-group-prepend">
+                                        <div class="input-group-text"><i className="fa fa-user"></i></div>
+                                    </div>
                                     <input type="email" className="form-control" id="signupEmail" placeholder="Email"/>
                                     <IfClause condition={ this.state.emailRequired }>
                                         <p className="form-text text-muted error-message">Email required</p>
@@ -117,12 +120,22 @@ class  SignUp extends Component{
                                     <IfClause condition={ this.state.emailInvalid }>
                                         <p className="form-text text-muted error-message">Invalid Email</p>
                                     </IfClause>    
-                                    <br />
+                                </div>
+                                <br/>
+                                <div class='input-group'>
+                                <div class="input-group-prepend">
+                                        <div class="input-group-text"><i className="fa fa-lock"></i></div>
+                                    </div>
                                     <input type="password" className="form-control" id="signupPassword" placeholder="Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                         <p className="form-text text-muted error-message">Password required</p>
                                     </IfClause>  
-                                    <br/>  
+                                </div>
+                                <br/>
+                                <div class='input-group' >
+                                <div class="input-group-prepend">
+                                        <div class="input-group-text"><i className="fa fa-user"></i></div>
+                                    </div>
                                     <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                         <p className="form-text text-muted error-message">Re-enter your password to confirm</p>
@@ -131,8 +144,9 @@ class  SignUp extends Component{
                                     <IfClause condition={ this.state.pwdNotSame }>
                                         <p className="form-text text-muted error-message">Passwords do not match</p>
                                     </IfClause>    
-                                    <a className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</a>
                                 </div>
+                                <br />
+                                <a href='#' className="btn btn-primary btn-block" onClick={this.onSignUp}>Sign Up</a>
                             </form>
                         </div>
                     </div>

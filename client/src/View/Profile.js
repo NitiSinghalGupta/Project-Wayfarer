@@ -72,9 +72,12 @@ export default class Profile extends Component {
                         User profile saved succesfully.
                     </div>
                 </IfClause>
+
+                <h2>Profile Settings</h2>
+                <br />
                 
                 <div className="row">
-                    <div className='col'>
+                    <div className='col-md-8'>
                         <form>
                             <div className="form-group">
                                 <label for="userEmail">User Email</label>
@@ -100,9 +103,9 @@ export default class Profile extends Component {
                             <a href='#' className="btn btn-primary" onClick={ () => this.onSaveClick()}>Update</a>
                         </form>
                     </div>
-                    <div className='col'>
+                    <div className='col-md-4 avatar-section'>
                         <img className="img-thumbnail picture" id="ProfileImage" src="http://www.kusalimika.ch/file/2017/02/avaar.jpg" />
-                        <h5 className="text-bold">Upload a different photo...</h5>
+                        <h5 className="text-bold">Change Avatar</h5>
                         <input type="file" className="text-center center-block file-upload" />
                     </div>
                 </div>
