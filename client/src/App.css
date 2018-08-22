@@ -3,13 +3,17 @@ html, body {
   height: 100%;
 }
 
+main {
+  margin-bottom: 50px;
+}
+
 .carousel-container {
-  height: 600px !important;
+  height: 680px !important;
   padding-bottom: 20px;
 }
 
 img.carousel-image {
-  height: 600px;
+  height: 680px;
   width: 100%;
   object-fit: cover;
 }
