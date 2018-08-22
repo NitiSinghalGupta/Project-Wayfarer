@@ -104,7 +104,7 @@ export default class Profile extends Component {
                         </form>
                     </div>
                     <div className='col-md-4 avatar-section'>
-                        <img className="img-thumbnail picture" id="ProfileImage" src="http://www.kusalimika.ch/file/2017/02/avaar.jpg" />
+                        <img className="img-thumbnail picture" id="ProfileImage" src="https://s3.amazonaws.com/cdn.roosterteeth.com/default/tb/user_profile_female.jpg" />
                         <h5 className="text-bold">Change Avatar</h5>
                         <input type="file" className="text-center center-block file-upload" />
                     </div>

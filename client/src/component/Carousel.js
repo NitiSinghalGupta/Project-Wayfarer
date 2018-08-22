@@ -9,9 +9,9 @@ export default class Carousel extends Component {
     //class level var
     timer = null;
 
-    //slideimage is called every 2 sec
+    //slideimage is called every 1 sec
     componentDidMount() {
-        this.timer = setInterval(this.slideImage, 2000);
+        this.timer = setInterval(this.slideImage, 1000);
     }
 
     componentWillUnmount() {
