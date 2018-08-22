@@ -45,6 +45,10 @@ main {
   margin-bottom: 15px;
 }
 
+p.error-message {
+  color:red;
+}
+
 h3 {
   background: blue;
   color: rgb(65, 170, 32);
