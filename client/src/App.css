@@ -12,6 +12,14 @@ main {
   padding-bottom: 20px;
 }
 
+.landingpagetext {
+  padding: 50px 0;
+}
+
+.card-img-top {
+  height: 170px !important;
+}
+
 img.carousel-image {
   height: 680px;
   width: 100%;
