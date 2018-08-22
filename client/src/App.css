@@ -3,6 +3,17 @@ html, body {
   height: 100%;
 }
 
+.carousel-container {
+  height: 600px !important;
+  padding-bottom: 20px;
+}
+
+img.carousel-image {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
 .App {
   text-align: center;
 }

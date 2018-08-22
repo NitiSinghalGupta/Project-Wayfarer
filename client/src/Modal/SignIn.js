@@ -110,7 +110,7 @@ class SignIn extends Component{
                                     </IfClause>
                                     </div>
                                     <div className="form-group">
-                                    <i class="fa fa-lock"></i>
+                                    <i className="fa fa-lock"></i>
                                     <input type="password" className="form-control" id="signinPassword" placeholder="Password" />
                                     <IfClause condition={ this.state.pwdRequired }>
                                     <p className="form-text text-muted error-message">Password required</p>
