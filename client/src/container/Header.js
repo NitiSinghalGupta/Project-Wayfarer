@@ -22,6 +22,15 @@ class Header extends Component {
         this.props.history.push('/home');
     }
 
+    homeOrLandingHandler = () => {
+        if(this.props.profile != null) {
+            this.props.history.push('/home');
+            return;
+        }
+
+        this.props.history.push('/');
+    }
+
     render(){
         console.log('profile: ', this.props.profile);
 
@@ -29,11 +38,7 @@ class Header extends Component {
             <header className='mb-auto'>
             
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                    <a className="navbar-brand" href="#">Wayfarer</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarCollapse">
+                    <a className="navbar-brand" href="#" onClick={ this.homeOrLandingHandler }>Wayfarer</a>
                     <ul className="navbar-nav mr-auto">
                         
                         <IfClause condition={ !this.props.profile }>
@@ -66,7 +71,6 @@ class Header extends Component {
                         </IfClause>     
                                          
                     </ul>
-                    </div>
                 </nav>
             </header>
     
