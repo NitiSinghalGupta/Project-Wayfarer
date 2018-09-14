@@ -1,13 +1,11 @@
-# Project 1
+# Project Wayfarer
 
-This is my work towards *Project Wayfarer* for General Assembly WDI-46 batch. This page that I built using my learnings.
-
-The site is deployed at
+Wayfarer project is a TripAdvisor style application for people to post their trip memories for vacations they enjoyed. 
 
 ## Technologies Used
 
 * HTML5, CSS, JavaScript
-* React
+* ReactJS
 * Bootstrap 4.0
 * NodeJS
 * MongoDB
