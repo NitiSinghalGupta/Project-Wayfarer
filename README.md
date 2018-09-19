@@ -1,6 +1,6 @@
 # Project Wayfarer
 
-Wayfarer project is a TripAdvisor style application for people to post their trip memories for vacations they enjoyed. 
+Wayfarer project is a TripAdvisor style application for people to post their trip memories for vacations they enjoyed. The online application is deployed at: https://wayfarer-web.herokuapp.com/
 
 ## Technologies Used
 
